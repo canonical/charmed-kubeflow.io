@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta https-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+
+  <title>
+    {% block title %}Charmed Kubeflow - Run Kubeflow anywhere, easily{% endblock %}
+  </title>
+
+  <link rel="preconnect" href="https://www.google-analytics.com">
+  <link rel="preconnect" href="https://www.gstatic.com">
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-K7QJ3BF');</script>
+  <!-- End Google Tag Manager -->
+
+  <script src="https://assets.ubuntu.com/v1/703e23c9-lazysizes+noscript+native-loading.5.1.2.min.js" defer></script>
+
+  <!-- GitHub buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  <link rel="icon" type="image/png" href="https://assets.ubuntu.com/v1/374b7214-favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="https://assets.ubuntu.com/v1/7817315c-favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="https://assets.ubuntu.com/v1/b3026a35-favicon-96x96.png" sizes="96x96" />
+
+  <link rel="apple-touch-icon" sizes="144x144" href="https://assets.ubuntu.com/v1/93bc5a22-apple-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="https://assets.ubuntu.com/v1/b349d3e0-apple-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="https://assets.ubuntu.com/a181ca90-apple-icon-72x72.png" />
+  <link rel="apple-touch-icon" href="https://assets.ubuntu.com/v1/b23068a3-apple-icon.png" />
+
+  <link rel="preload" as="font" type="font/woff2" href="https://assets.ubuntu.com/v1/e8c07df6-Ubuntu-L_W.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="https://assets.ubuntu.com/v1/7f100985-Ubuntu-Th_W.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="https://assets.ubuntu.com/v1/f8097dea-Ubuntu-LI_W.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="https://assets.ubuntu.com/v1/fff37993-Ubuntu-R_W.woff2" crossorigin>
+
+  <meta name="description" content="{% block meta_description %}{% endblock %}">
+
+  <meta name="theme-color" content="#414BB2">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://charmed-kubeflow.io">
+  <meta property="og:site_name" content="charmed-kubeflow.io">
+
+  {% if self.title() %}
+  <meta name="twitter:title" content="{{ self.title() }} | Charmed Kubeflow">
+  <meta property="og:title" content="{{ self.title() }} | Charmed Kubeflow">
+  {% endif %}
+
+  {% if self.meta_description() %}
+  <meta name="twitter:description" content="{{ self.meta_description() }}">
+  <meta property="og:description" content="{{ self.meta_description() }}">
+  {% endif %}
+
+  <link rel="stylesheet" type="text/css" media="screen" href="{{ versioned_static('css/styles.css') }}" />
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7QJ3BF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <script src="{{ versioned_static('js/dist/global-nav.js') }}"></script>
+
+  {% include "partial/_navigation.html" %}
+
+  <div id="main">
+    {% block content %}{% endblock content %}
+  </div>
+
+  {% include "partial/_footer.html" %}
+
+</body>
+
+</html>

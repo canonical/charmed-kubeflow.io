@@ -1,0 +1,61 @@
+// Import scss settings
+@import "settings";
+
+// Import Vanilla
+@import "vanilla-framework/scss/build";
+
+// Custom styles
+.p-navigation__banner {
+  background-color: $color-brand;
+}
+
+.p-navigation {
+  .p-navigation__row {
+    padding: 0;
+
+    .p-navigation__banner {
+      padding: 0 $sph-inner--large;
+
+      .p-navigation__logo {
+        font-weight: 400;
+        margin-right: 0;
+      }
+
+      .p-navigation__toggle {
+        &--open,
+        &--close {
+          font-weight: 400;
+        }
+      }
+    }
+
+    .p-navigation__link a {
+      height: 100%;
+      padding-left: $sph-inner--large;
+      padding-right: $sph-inner--large;
+    }
+  }
+}
+
+.u-no-margin--bottom-small {
+  @media only screen and (min-width: $breakpoint-medium) {
+    margin-bottom: 0 !important;
+  }
+}
+
+.p-code-numbered__line {
+  padding: 0.5rem 1rem 0 4rem;
+
+  &::before {
+    content: "$";
+    width: 3rem;
+  }
+}
+
+// XXX Remove the top border on a Matrix on small screesn
+// https://github.com/canonical-web-and-design/vanilla-framework/issues/2517
+.p-matrix {
+  &__item:first-of-type {
+    border-top: 0;
+  }
+}

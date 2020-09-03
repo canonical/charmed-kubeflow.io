@@ -1,0 +1,293 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<section class="p-strip--image is-dark is-deep" style="background-image: url('https://assets.ubuntu.com/v1/8bc629a7-microk8s-suru-background.svg'); background-size: cover;">
+  <div class="row u-equal-height">
+    <div class="col-8">
+      <h1>Run Kubeflow anywhere, easily</h1>
+      <p class="p-heading--four">Open source Python operators for Kubeflow on-rails.</p>
+      <p class="u-sv3">For workstations, multi-cloud and edge.</p>
+      <p>
+        <a href="http://ubuntu.com/kubeflow/install" class="p-button--positive p-link--external">Get running in 5 minutes</a>
+        <a href="/contact-us" class="p-link--inverted">Get in touch&nbsp;&rsaquo;</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="p-strip--light">
+  <div class="row">
+    <div class="col-3">
+      <h3>Public cloud</h3>
+      <ul class="p-list">
+        <li class="p-list__item is-ticked">GPU acceleration</li>
+        <li class="p-list__item is-ticked">Amazon EKS</li>
+        <li class="p-list__item is-ticked">Google GKE</li>
+        <li class="p-list__item is-ticked">Azure AKS</li>
+      </ul>
+    </div>
+    <div class="col-3">
+      <h3>Servers</h3>
+      <ul class="p-list">
+        <li class="p-list__item is-ticked">Runs on any Kubernetes</li>
+        <li class="p-list__item is-ticked">Bare metal deployment</li>
+        <li class="p-list__item is-ticked">NVIDIA GPU autoconfig</li>
+        <li class="p-list__item is-ticked">Included in MicroK8s</li>
+      </ul>
+    </div>
+    <div class="col-3">
+      <h3>Workstations</h3>
+      <ul class="p-list">
+        <li class="p-list__item is-ticked">Lightweight config</li>
+        <li class="p-list__item is-ticked">Windows</li>
+        <li class="p-list__item is-ticked">macOS</li>
+        <li class="p-list__item is-ticked">Ubuntu</li>
+      </ul>
+    </div>
+    <div class="col-3">
+      <h3>Edge</h3>
+      <ul class="p-list">
+        <li class="p-list__item is-ticked">Inference-only config</li>
+        <li class="p-list__item is-ticked">Distributed training</li>
+        <li class="p-list__item is-ticked">Fast-clustering</li>
+        <li class="p-list__item is-ticked">Optimised for x86</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="p-strip">
+  <div class="row u-equal-height">
+    <div class="col-5 u-align--center u-hide--small u-vertically-center">
+      {{
+        image(
+          url="https://assets.ubuntu.com/v1/22007291-DevOps.svg",
+          alt="",
+          width="350",
+          height="200",
+          hi_def=True,
+        ) | safe
+      }}
+    </div>
+    <div class="col-7">
+      <h2>Industrial MLops from lab to enterprise</h2>
+      <p class="p-heading--four">Professionalise data science with industrial data pipelines</p>
+      <p>Experiment with Kubeflow on MicroK8s from desktop to large scale. Highly available with 3+ nodes.</p>
+      <p>Unleash your data scientists with the latest ML tools in a single dashboard. All-in-one toolkit, one-time-config.</p>
+      <p>No more siloed notebooks and scripts, reproducible and shareable AI workflows with <a href="https://ubuntu.com/blog/data-science-workflows-on-kubernetes-with-kubeflow-pipelines-part-1" class="p-link--external">Kubeflow pipelines</a>.</p>
+      <ul class="p-inline-list">
+        <li class="p-inline-list__item"><a href="http://ubuntu.com/kubeflow/install" class="p-button--positive p-link--external">Install Kubeflow</a></li>
+        <li class="p-inline-list__item"><a href="https://ubuntu.com/tutorials/deploy-kubeflow-ubuntu-windows-mac#1-overview" class="p-link--external">Follow tutorial</a></li>
+        <li class="p-inline-list__item"><a href="https://ubuntu.com/kubeflow/what-is-kubeflow" class="p-link--external">What is Kubeflow?</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="p-strip--light">
+  <div class="row">
+    <div class="col-8">
+      <h2>Kubeflow, nicely packaged.</h2>
+      <p>Charms wrap the 30+ applications that make up Kubeflow, integrating them in a software-defined way. Get the best Kubeflow experience, from deployment to day-2 operations.</p>
+    </div>
+  </div>
+</section>
+
+<section class="p-strip">
+  <div class="row">
+    <div class="col-8">
+      <h2>Automatic GPU acceleration</h2>
+      <p class="p-heading--four">Detect, configure and accelerate all your machine learning</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <p>Accelerate your AI to market. Pass GPUs to your ML pipeline components, for deep learning dev and test.</p>
+      <p>Train faster on the latest silicon. Charmed Kubeflow will automagically detect, configure and use available GPUs.</p>
+      <p>On desktop, rack, or any public cloud.</p>
+      <ul class="p-inline-list">
+        <li class="p-inline-list__item"><a href="https://microk8s.io/docs/addon-gpu" class="p-link--external">GPU on MicroK8s</a></li>
+        <li class="p-inline-list__item"><a href="https://ubuntu.com/kubernetes/docs/gpu-workers" class="p-link--external">GPU on multi-cloud K8s</a></li>
+      </ul>
+    </div>
+    <div class="col-4 u-align--center u-hide--small">
+      {{
+        image(
+          url="https://assets.ubuntu.com/v1/1ac0e434-Nvidia_Logo_Horizontal.svg",
+          alt="",
+          width="152",
+          height="32",
+          hi_def=True,
+        ) | safe
+      }}
+    </div>
+  </div>
+</section>
+
+<section class="p-strip--light">
+  <div class="row">
+    <div class="col-12">
+      <h2>Data lake integration</h2>
+      <p class="p-heading--four">Spark, Hadoop, Cassandra. Turn data into predictions.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <p>Bring the analytics power of Kubeflow to your data lake, with seamless integration.</p>
+      <p>Looking to modernise your MLOps, but still running on Hadoop? Need to integrate with Spark or Kafka? We’ll connect the dots.</p>
+      <p>The right community driven proxy-charms model your current data solutions and integrate them with Kubeflow.</p>
+      <ul class="p-inline-list">
+        <li class="p-inline-list__item"><a href="https://jaas.ai/big-data" class="p-link--external">More on data lake operators</a></li>
+        <li class="p-inline-list__item"><a href="/contact-us">Talk to us about integration&nbsp;&rsaquo;</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="p-strip">
+  <div class="row u-equal-height">
+    <div class="col-7">
+      <h2>Scale data pipelines to thousands of jobs</h2>
+      <p class="p-heading--four">Offer data scientists a platform for large-scale continuous analytics</p>
+      <p>With Kubernetes at the core, scaling your ML compute with high availability is painless.</p>
+      <p>From experimentation with <a href="http://microk8s.io" class="p-link--external">MicroK8s</a> on desktop or one cloud node, to large scale <a href="https://ubuntu.com/kubernetes">multi-cloud Kubernetes</a>. </p>
+      <p>Multi-cloud Kubeflow delivers the elasticity of the public clouds and the cost-effective compute of on-prem.</p>
+      <p>
+        <a href="https://jaas.ai/kubeflow/bundle/185" class="p-button--neurtal p-link--external">Deploy Kubeflow at scale</a>
+      </p>
+    </div>
+    <div class="col-5 u-align--center u-hide--small u-vertically-center">
+      {{
+        image(
+          url="https://assets.ubuntu.com/v1/f887a7db-deploy+fast.svg",
+          alt="",
+          width="350",
+          height="200",
+          hi_def=True,
+        ) | safe
+      }}
+    </div>
+  </div>
+</section>
+
+<section class="p-strip--light">
+  <div class="row u-equal-height">
+    <div class="col-5 u-align--center u-hide--small u-vertically-center">
+      {{
+        image(
+          url="https://assets.ubuntu.com/v1/f887a7db-deploy+fast.svg",
+          alt="",
+          width="350",
+          height="200",
+          hi_def=True,
+        ) | safe
+      }}
+    </div>
+    <div class="col-7">
+      <h2>Open source operators in Python</h2>
+      <p class="p-heading--four">Small, composable, model-driven Kubernetes charms</p>
+      <p>Make use of open source integration code and compound the benefit of <a href="https://jaas.ai/store" class="p-link--external">100+ available operators</a>.</p>
+      <p>Charms make deploying and managing Kubeflow simple to your IT ops team. No hard-coded services, evergreen operations.</p>
+      <p>Engineered for flexibility around complex scenarios, charms allow you to tailor Kubeflow to your needs with custom integrations.</p>
+      <p>
+        <a href="https://jaas.ai/kubeflow/bundle" class="p-button--neurtal p-link--external">Kubeflow charms</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="p-strip">
+  <div class="row u-equal-height">
+    <div class="col-7">
+      <h2>Public cloud optimisation</h2>
+      <p class="p-heading--four">Fast-deploy on every major public cloud with GPU acceleration</p>
+      <p>We work with Amazon, Microsoft, Google, Oracle and IBM to simplify multi-cloud GPU accelerated workload development.</p>
+      <p>Easy setup on public cloud Kubernetes for a multi-cloud Kubeflow. Get the elasticity of the public clouds and the cost-effective compute of on-prem.</p>
+      <p>On-rails deployment and management with Python operators on public cloud Kubernetes services &mdash; AKS, EKS, GKE.</p>
+      <p><a href="https://ubuntu.com/kubernetes" class="p-link--external">Kubeflow on multi-cloud K8s</a></p>
+      </p>
+    </div>
+    <div class="col-5 u-align--center u-vertically-center u-hide--small">
+      {{
+        image(
+          url="https://assets.ubuntu.com/v1/78c1ad70-deploy-logos-2x.png",
+          alt="",
+          width="652",
+          height="470",
+          hi_def=True,
+        ) | safe
+      }}
+    </div>
+  </div>
+</section>
+
+<section class="p-strip--light">
+  <div class="row">
+    <div class="col-5 u-align--center u-vertically-center u-hide--small">
+      {{
+        image(
+          url="https://assets.ubuntu.com/v1/a1317807-Install+Kubeflow.svg",
+          alt="",
+          width="290",
+          height="200",
+          hi_def=True,
+        ) | safe
+      }}
+    </div>
+    <div class="col-7">
+      <h2>Lightweight workstation deployments</h2>
+      <p class="p-heading--four">Run Kubeflow locally. No resource limits.</p>
+      <p>With the expansion of Kubeflow as a full ML toolkit, running it on desktops with up to 16Gb of RAM has become a painful experience.</p>
+      <p>Kubeflow-lite is a lightweight version of Kubeflow with the ML services you typically need on your desktop, on a smooth experience.</p>
+      <p>
+        <a href="https://jaas.ai/u/kubeflow-charmers/kubeflow-lite" class="p-link--external">Learn more</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="p-strip is-bordered">
+  <div class="row">
+    <div class="col-7">
+      <h2>Bare metal Kubeflow operations</h2>
+      <p class="p-heading--four">Deploy and manage on-rails. No YAML-fu.</p>
+      <p>We work with bare metal vendors like Dell, Lenovo and Supermicro to bring the best out-of-the-box Kubeflow experience on-prem.</p>
+      <p>Enjoy a public cloud like experience on-prem with Metal As A Service.</p>
+      <p>Charms integrate your networking and storage of choice with logging, monitoring and alerting solutions, Kubernetes and Kubeflow.</p>
+      <ul class="p-inline-list">
+        <li class="p-inline-list__item"><a href="https://ubuntu.com/kubernetes" class="p-link--external">Dell and Canonical Reference Architecture</a></li>
+        <li class="p-inline-list__item"><a href="/contact-us">Contact us&nbsp;&rsaquo;</a></li>
+      </ul>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="p-strip is-bordered">
+  <div class="row u-equal-height">
+    <div class="col-5 u-align--center u-hide--small">
+      {{
+        image(
+          url="https://assets.ubuntu.com/v1/431b4ca2-ubuntu+core+18+circular+.svg",
+          alt="",
+          width="410",
+          height="400",
+          hi_def=True,
+        ) | safe
+      }}
+    </div>
+    <div class="col-7 u-vertically-center">
+      <div>
+        <h2>Take Kubeflow to the edge</h2>
+        <p class="p-heading--four">Well-integrated Kubeflow components for IoT devices</p>
+        <p>Install Kubeflow-edge, a lightweight ML toolkit for inference and distributed training at the edge, with one command.</p>
+        <p>Alternatively, build your custom Kubeflow bundle with the charmed apps you need, well integrated.</p>
+        <p>On MicroK8s or any conformant Kubernetes.</p>
+        <p>
+          <a href="https://jaas.ai/u/kubeflow-charmers/kubeflow-edge" class="p-link--external">Learn more</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
