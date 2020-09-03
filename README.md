@@ -12,7 +12,7 @@ After [installing Docker](https://docs.docker.com/install/):
 ./run
 ```
 
-And browse to http://127.0.0.1:8037.
+And browse to http://127.0.0.1:8046.
 
 # Deploy
 You can find the deployment config in the deploy folder.
