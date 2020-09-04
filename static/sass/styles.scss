@@ -36,26 +36,3 @@
     }
   }
 }
-
-.u-no-margin--bottom-small {
-  @media only screen and (min-width: $breakpoint-medium) {
-    margin-bottom: 0 !important;
-  }
-}
-
-.p-code-numbered__line {
-  padding: 0.5rem 1rem 0 4rem;
-
-  &::before {
-    content: "$";
-    width: 3rem;
-  }
-}
-
-// XXX Remove the top border on a Matrix on small screesn
-// https://github.com/canonical-web-and-design/vanilla-framework/issues/2517
-.p-matrix {
-  &__item:first-of-type {
-    border-top: 0;
-  }
-}
