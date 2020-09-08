@@ -48,3 +48,18 @@ def utility_processor():
 @app.route("/")
 def index():
     return render_template("index.html")
+
+
+@app.route("/thank-you")
+def thank_you():
+    return render_template("thank-you.html")
+
+
+@app.route("/contact-us")
+def contact_us():
+    return render_template("contact-us.html")
+
+
+@app.route("/includes/contact-us")
+def includes_contact_us():
+    return render_template("includes/contact-us.html")
