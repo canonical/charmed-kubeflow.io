@@ -23,9 +23,9 @@ session = talisker.requests.get_session()
 
 
 doc_parser = DocParser(
-    api=DiscourseAPI(base_url="https://discourse.dqlite.io/", session=session),
-    index_topic_id=21,
-    category_id=5,
+    api=DiscourseAPI(base_url="https://discourse.juju.is/", session=session),
+    index_topic_id=3530,
+    category_id=14,
     url_prefix="/docs",
 )
 
