@@ -25,7 +25,6 @@ session = talisker.requests.get_session()
 doc_parser = DocParser(
     api=DiscourseAPI(base_url="https://discourse.juju.is/", session=session),
     index_topic_id=3530,
-    category_id=14,
     url_prefix="/docs",
 )
 
