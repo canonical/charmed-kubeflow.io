@@ -4,6 +4,9 @@
 // Import Vanilla
 @import "vanilla-framework/scss/build";
 
+// import cookie policy
+@import "@canonical/cookie-policy/build/css/cookie-policy";
+
 // Local styles
 @import "pattern_strips";
 @import "pattern_navigation";
