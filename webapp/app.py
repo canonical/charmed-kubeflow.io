@@ -33,7 +33,6 @@ main_docs = Docs(
 main_docs.init_app(app)
 
 
-
 @app.context_processor
 def utility_processor():
     return {"image": image_template}
