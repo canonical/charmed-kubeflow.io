@@ -3,11 +3,8 @@ import talisker.requests
 # Packages
 from canonicalwebteam.flask_base.app import FlaskBase
 from canonicalwebteam import image_template
-from canonicalwebteam.discourse_docs import (
-    DiscourseDocs,
-    DiscourseAPI,
-    DocParser,
-)
+from canonicalwebteam.discourse import DiscourseAPI, DocParser, Docs
+
 from flask import render_template
 
 # Rename your project below
@@ -21,22 +18,19 @@ app = FlaskBase(
 )
 session = talisker.requests.get_session()
 
-
-doc_parser = DocParser(
-    api=DiscourseAPI(base_url="https://discourse.juju.is/", session=session),
-    index_topic_id=3749,
-    url_prefix="/docs",
-)
-
-if app.debug:
-    doc_parser.api.session.adapters["https://"].timeout = 99
-
-discourse_docs = DiscourseDocs(
-    parser=doc_parser,
+main_docs = Docs(
+    parser=DocParser(
+        api=DiscourseAPI(
+            base_url="https://discourse.charmhub.io/", session=session
+        ),
+        index_topic_id=4943,
+        url_prefix="/docs",
+    ),
     document_template="docs/document.html",
     url_prefix="/docs",
+    blueprint_name="main_docs",
 )
-discourse_docs.init_app(app)
+main_docs.init_app(app)
 
 
 @app.context_processor
