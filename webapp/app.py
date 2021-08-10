@@ -5,7 +5,7 @@ from canonicalwebteam.flask_base.app import FlaskBase
 from canonicalwebteam import image_template
 from canonicalwebteam.discourse import DiscourseAPI, DocParser, Docs
 
-from flask import render_template
+from flask import render_template, make_response
 
 # Rename your project below
 app = FlaskBase(
@@ -56,3 +56,21 @@ def contact_us():
 @app.route("/includes/contact-us")
 def includes_contact_us():
     return render_template("includes/contact-us.html")
+
+
+@app.route("/sitemap.xml")
+def sitemap_index():
+    xml_sitemap = render_template("sitemap/sitemap-index.xml")
+    response = make_response(xml_sitemap)
+    response.headers["Content-Type"] = "application/xml"
+
+    return response
+
+
+@app.route("/sitemap-links.xml")
+def sitemap_links():
+    xml_sitemap = render_template("sitemap/sitemap-links.xml")
+    response = make_response(xml_sitemap)
+    response.headers["Content-Type"] = "application/xml"
+
+    return response
