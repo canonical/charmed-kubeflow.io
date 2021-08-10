@@ -23,7 +23,7 @@ main_docs = Docs(
         api=DiscourseAPI(
             base_url="https://discourse.charmhub.io/", session=session
         ),
-        index_topic_id=4943,
+        index_topic_id=3749,
         url_prefix="/docs",
     ),
     document_template="docs/document.html",
