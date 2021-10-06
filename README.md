@@ -1,6 +1,6 @@
 # charmed-kubeflow.io
 
-[![Code coverage](https://codecov.io/gh/canonical-web-and-design/charmed-kubeflow.io/branch/master/graph/badge.svg)](https://codecov.io/gh/canonical-web-and-design/charmed-kubeflow.io)
+[![Code coverage](https://codecov.io/gh/canonical-web-and-design/charmed-kubeflow.io/branch/main/graph/badge.svg)](https://codecov.io/gh/canonical-web-and-design/charmed-kubeflow.io)
 
 This is the repo for the [charmed-kubeflow.io website](https://charmed-kubeflow.io).
 
