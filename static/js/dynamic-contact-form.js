@@ -26,10 +26,16 @@
           formContainer.classList.remove("u-hide");
           formContainer.innerHTML = text
             .replace(/%% formid %%/g, formData.formId)
-            .replace(/%% lpId %%/g, formData.lpId)
-            .replace(/%% returnURL %%/g, formData.returnUrl)
-            .replace(/%% lpurl %%/g, formData.lpUrl);
+            .replace(/%% returnURL %%/g, formData.returnUrl);
+
+          if (formData.title) {
+            const title = document.getElementById("modal-title");
+            title.innerHTML = formData.title;
+          }
           setProductContext(contactButton);
+          setUTMs();
+          setGclid();
+          setFBclid();
           initialiseForm();
         })
         .catch(function (error) {
@@ -40,13 +46,15 @@
     // Open the contact us modal
     function open() {
       updateHash(triggeringHash);
-      ga(
-        "send",
-        "event",
-        "interactive-forms",
-        "open",
-        window.location.pathname
-      );
+      if (typeof ga !== "undefined") {
+        ga(
+          "send",
+          "event",
+          "interactive-forms",
+          "open",
+          window.location.pathname
+        );
+      }
     }
 
     // Removes the triggering hash
@@ -87,38 +95,72 @@
       }
     }
 
+    function setUTMs() {
+      var params = new URLSearchParams(window.location.search);
+      var utm_campaign = document.getElementById("utm_campaign");
+      if (utm_campaign) {
+        utm_campaign.value = params.get("utm_campaign");
+      }
+      var utm_source = document.getElementById("utm_source");
+      if (utm_source) {
+        utm_source.value = params.get("utm_source");
+      }
+      var utm_medium = document.getElementById("utm_medium");
+      if (utm_medium) {
+        utm_medium.value = params.get("utm_medium");
+      }
+
+      var utm_content = document.getElementById("utm_content");
+      if (utm_content) {
+        utm_content.value = params.get("utm_content");
+      }
+
+      var utm_term = document.getElementById("utm_term");
+      if (utm_term) {
+        utm_term.value = params.get("utm_term");
+      }
+    }
+
+    function setGclid() {
+      if (localStorage.getItem("gclid")) {
+        var gclidField = document.getElementById("GCLID__c");
+        var gclid = JSON.parse(localStorage.getItem("gclid"));
+        var isGclidValid = new Date().getTime() < gclid.expiryDate;
+        if (gclid && isGclidValid && gclidField) {
+          gclidField.value = gclid.value;
+        }
+      }
+    }
+
+    function setFBclid() {
+      if (localStorage.getItem("fbclid")) {
+        var fbclidField = document.getElementById("FBCLID__c");
+        var fbclid = JSON.parse(localStorage.getItem("fbclid"));
+        var fbclidIsValid = new Date().getTime() < fbclid.expiryDate;
+        if (fbclid && fbclidIsValid && fbclidField) {
+          fbclidField.value = fbclid.value;
+        }
+      }
+    }
+
     function initialiseForm() {
       var contactIndex = 1;
       var contactModal = document.getElementById("contact-modal");
       var closeModal = document.querySelector(".p-modal__close");
       var closeModalButton = document.querySelector(".js-close");
       var modalPaginationButtons = contactModal.querySelectorAll(
-        ".pagination a"
+        ".p-pagination a"
       );
       var paginationContent = contactModal.querySelectorAll(".js-pagination");
-      var submitButton = contactModal.querySelector(".mktoButton");
-      var inputs = contactModal.querySelectorAll("input, textarea");
       var comment = contactModal.querySelector("#Comments_from_lead__c");
       var otherContainers = document.querySelectorAll(".js-other-container");
 
       document.onkeydown = function (evt) {
         evt = evt || window.event;
-        if (evt.keyCode == 27) {
+        if (evt.key == "Escape") {
           close();
         }
       };
-
-      if (submitButton) {
-        submitButton.addEventListener("click", function (e) {
-          ga(
-            "send",
-            "event",
-            "interactive-forms",
-            "submitted",
-            window.location.pathname
-          );
-        });
-      }
 
       if (closeModal) {
         closeModal.addEventListener("click", function (e) {
@@ -148,19 +190,13 @@
           e.preventDefault();
           var button = e.target.closest("a");
           var index = contactIndex;
-          if (button.classList.contains("pagination__link--previous")) {
+          if (button.classList.contains("p-pagination__link--previous")) {
             index = index - 1;
-            setState(index);
-            ga(
-              "send",
-              "event",
-              "interactive-forms",
-              "goto:" + index,
-              window.location.pathname
-            );
           } else {
             index = index + 1;
-            setState(index);
+          }
+          setState(index);
+          if (typeof ga !== "undefined") {
             ga(
               "send",
               "event",
@@ -188,15 +224,6 @@
         });
       });
 
-      // Hack for now but updates the styling based on the thank you panel
-      function checkThankYou() {
-        if (contactIndex == 4) {
-          contactModal.classList.add("thank-you");
-        } else {
-          contactModal.classList.remove("thank-you");
-        }
-      }
-
       // Updates the index and renders the changes
       function setState(index) {
         contactIndex = index;
@@ -209,19 +236,19 @@
         formContainer.classList.add("u-hide");
         formContainer.removeChild(contactModal);
         updateHash("");
-        ga(
-          "send",
-          "event",
-          "interactive-forms",
-          "close",
-          window.location.pathname
-        );
+        if (typeof ga !== "undefined") {
+          ga(
+            "send",
+            "event",
+            "interactive-forms",
+            "close",
+            window.location.pathname
+          );
+        }
       }
 
       // Update the content of the modal based on the current index
       function render() {
-        checkThankYou();
-
         comment.value = createMessage();
 
         var currentContent = contactModal.querySelector(
@@ -242,13 +269,15 @@
           var comma = "";
           var fieldTitle = formField.querySelector(".p-heading--5");
           var inputs = formField.querySelectorAll("input, textarea");
-          message += fieldTitle.innerText + "\r\n";
+          if (fieldTitle) {
+            message += fieldTitle.innerText + "\r\n";
+          }
 
           inputs.forEach(function (input) {
             switch (input.type) {
               case "radio":
                 if (input.checked) {
-                  message += comma + input.value;
+                  message += comma + input.value + "\r\n\r\n";
                   comma = ", ";
                 }
                 break;
@@ -270,35 +299,119 @@
                   } else {
                     label = input.id;
                   }
-                  message += comma + label;
+                  message += comma + label + "\r\n\r\n";
                   comma = ", ";
                 }
                 break;
               case "text":
-                if (
-                  !input.classList.contains("mktoField") &&
-                  input.value !== ""
-                ) {
-                  message += comma + input.value;
+                if (input.value !== "") {
+                  message += comma + input.value + "\r\n\r\n";
+                  comma = ", ";
+                }
+                break;
+              case "number":
+                if (input.value !== "") {
+                  message += comma + input.value + "\r\n\r\n";
                   comma = ", ";
                 }
                 break;
               case "textarea":
-                if (
-                  !input.classList.contains("mktoField") &&
-                  input.value !== ""
-                ) {
-                  message += comma + input.value;
+                if (input.value !== "") {
+                  message += comma + input.value + "\r\n\r\n";
                   comma = ", ";
                 }
                 break;
             }
           });
-          message += "\r\n\r\n";
         });
 
         return message;
       }
+
+      // Toggles the description textarea field for radio buttons
+      function setupRadioDescriptionFields() {
+        const radioGroups = document.querySelectorAll(".js-radio-group");
+
+        radioGroups.forEach((radioGroup) => {
+          const radioButtons = radioGroup.querySelectorAll("[type='radio']");
+
+          const descriptionToggle = radioGroup.querySelector(
+            ".js-toggle-description-field"
+          );
+
+          const descriptionField = document.getElementById(
+            descriptionToggle.dataset.descriptionFieldId
+          );
+
+          radioButtons.forEach((radioButton) => {
+            radioButton.addEventListener("change", (e) => {
+              if (
+                e.currentTarget === descriptionToggle &&
+                e.currentTarget.checked
+              ) {
+                descriptionField.classList.remove("u-hide");
+              } else {
+                descriptionField.classList.add("u-hide");
+              }
+            });
+          });
+        });
+      }
+
+      setupRadioDescriptionFields();
+
+      // Sets a limit of checkboxes and disables remaining fields
+      function setCheckboxLimit() {
+        const choiceLimitContainers = document.querySelectorAll(
+          ".js-choice-limit"
+        );
+
+        const checkedChoices = (choices) => {
+          return Array.from(choices).filter((choice) => {
+            return choice.checked;
+          });
+        };
+
+        const uncheckedChoices = (choices) => {
+          return Array.from(choices).filter((choice) => {
+            return !choice.checked;
+          });
+        };
+
+        const handleChoiceLimitContainer = (choiceLimitContainer) => {
+          const choiceLimit = choiceLimitContainer.dataset.choiceLimit;
+          const choices = choiceLimitContainer.querySelectorAll(
+            "[type='checkbox']"
+          );
+
+          choices.forEach((choice) => {
+            choice.addEventListener("change", () => {
+              if (checkedChoices(choices).length >= choiceLimit) {
+                uncheckedChoices(choices).forEach((c) => {
+                  c.setAttribute("disabled", true);
+                });
+              } else {
+                uncheckedChoices(choices).forEach((c) => {
+                  c.removeAttribute("disabled");
+                });
+              }
+            });
+          });
+        };
+
+        choiceLimitContainers.forEach(handleChoiceLimitContainer);
+      }
+
+      setCheckboxLimit();
+
+      function fireLoadedEvent() {
+        var event = new CustomEvent("contactModalLoaded");
+        document.dispatchEvent(event);
+      }
+
+      fireLoadedEvent();
+
+      comment.value = createMessage();
     }
 
     // Opens the form when the initial hash matches the trigger
