@@ -7,7 +7,7 @@
   <div class="row u-equal-height">
     <div class="col-6 u-vertically-center">
       <div>
-        <h1>Kubeflow operations at any scale</h1>
+        <h1>Kubeflow AI and MLOps at any scale</h1>
         <p class="p-heading--4">Pure open source operators simplify Kubeflow, on any cloud.</p>
         <p>A complete solution for sophisticated data science labs. Deploy and integrate Kubeflow at any scale. Upgrades and security updates - all supported in the free, open source distribution.</p>
         <p>
@@ -34,11 +34,20 @@
 <section class="p-strip">
   <div class="row">
     <div class="col-3">
-      <p class="p-heading--3">Public cloud</p>
+      <p class="p-heading--3">Accelerate MLOps</p>
+      <ul class="p-list--divided">
+        <li class="p-list__item is-ticked">One solution, any cloud</li>
+        <li class="p-list__item is-ticked">Multi-user collaboration</li>
+        <li class="p-list__item is-ticked">Parallel training at any scale</li>
+        <li class="p-list__item is-ticked">TensorFlow, MXNet, PyTorch and more</li>
+      </ul>
+    </div>
+    <div class="col-3">
+      <p class="p-heading--3">Cloud ready</p>
       <ul class="p-list--divided">
         <li class="p-list__item is-ticked">GPU acceleration</li>
-        <li class="p-list__item is-ticked">Amazon EKS</li>
-        <li class="p-list__item is-ticked">Azure AKS</li>
+        <li class="p-list__item is-ticked">Ready to run on Amazon EKS</li>
+        <li class="p-list__item is-ticked">Ready to run on Azure AKS</li>
       </ul>
     </div>
     <div class="col-3">
@@ -51,7 +60,7 @@
       </ul>
     </div>
     <div class="col-3">
-      <p class="p-heading--3">Free without restriction</p>
+      <p class="p-heading--3">No restrictions</p>
       <ul class="p-list--divided">
         <li class="p-list__item is-ticked">Free to use in any environment</li>
         <li class="p-list__item is-ticked">Open source software</li>
@@ -59,21 +68,10 @@
 	<li class="p-list__item is-ticked">Expert services to help get you up and running</li>
       </ul>
     </div>
-    <div class="col-3">
-      <p class="p-heading--3">Accelerate your MLOps</p>
-      <ul class="p-list--divided">
-        <li class="p-list__item is-ticked">One solution, any cloud</li>
-        <li class="p-list__item is-ticked">Multi-user collaboration</li>
-        <li class="p-list__item is-ticked">Parallel training at any scale</li>
-        <li class="p-list__item is-ticked">TensorFlow, MXNet, PyTorch and more</li>
-      </ul>
-    </div>
   </div>
+ </section>
 
-  <div class="row">
-    <hr style="margin: 3rem 0 4rem 0;" />
-  </div>
-
+ <section class="p-strip--light">
   <div class="row u-equal-height">
     <div class="col-5 u-align--center u-hide--small u-vertically-center">
       {{
@@ -125,6 +123,34 @@
 
 <section class="p-strip">
   <div class="row u-equal-height">
+    <div class="col-7">
+      <h2>All&ndash;you&ndash;need Kubeflow services</h2>
+      <p class="p-heading--4 u-sv2">Enterprise support, deployment and fully managed Kubeflow</p>
+      <p>Rely on 24/7 full-stack enterprise support with the SLAs you need.</p>
+      <p>Off-load the complexity of deployment and management of Kubeflow to Canonical engineers.</p>
+      <p><a href="https://assets.ubuntu.com/v1/4e502b09-Managed.Kubeflow.DS.19.01.22+%281%29.pdf" class="p-button--positive">Get the datasheet</a></p>
+      <ul class="p-inline-list">
+        <li class="p-inline-list__item"><a href="https://ubuntu.com/managed/apps">Managed Kubeflow</a></li>
+        <li class="p-inline-list__item"><a href="http://ubuntu.com/kubeflow/consulting">Kubeflow services</a></li>
+        <li class="p-inline-list__item"><a href="#get-in-touch" class="js-invoke-modal">Contact us&nbsp;&rsaquo;</a></li>
+      </ul>
+    </div>
+    <div class="col-5 u-align--center u-hide--small u-vertically-center">
+      {{
+        image(
+          url="https://assets.ubuntu.com/v1/5307db8d-Kubeflow+services.svg",
+          alt="",
+          width="279",
+          height="300",
+          hi_def=True,
+        ) | safe
+      }}
+    </div>
+  </div>
+</section>
+
+<section class="p-strip--light">
+  <div class="row u-equal-height">
     <div class="col-8">
       <h2>Automatic GPU acceleration</h2>
       <p class="p-heading--4 u-sv2">Detect, configure and accelerate your deep learning</p>
@@ -151,28 +177,26 @@
 
 <section class="p-strip">
   <div class="row u-equal-height">
-    <div class="col-7">
-      <h2>All&ndash;you&ndash;need Kubeflow services</h2>
-      <p class="p-heading--4 u-sv2">Enterprise support, deployment and fully managed Kubeflow</p>
-      <p>Rely on 24/7 full-stack enterprise support with the SLAs you need.</p>
-      <p>Off-load the complexity of deployment and management of Kubeflow to Canonical engineers.</p>
-      <p><a href="https://assets.ubuntu.com/v1/4e502b09-Managed.Kubeflow.DS.19.01.22+%281%29.pdf" class="p-button--positive">Get the datasheet</a></p>
-      <ul class="p-inline-list">
-        <li class="p-inline-list__item"><a href="https://ubuntu.com/managed/apps">Managed Kubeflow</a></li>
-        <li class="p-inline-list__item"><a href="http://ubuntu.com/kubeflow/consulting">Kubeflow services</a></li>
-        <li class="p-inline-list__item"><a href="#get-in-touch" class="js-invoke-modal">Contact us&nbsp;&rsaquo;</a></li>
-      </ul>
-    </div>
     <div class="col-5 u-align--center u-hide--small u-vertically-center">
       {{
         image(
-          url="https://assets.ubuntu.com/v1/5307db8d-Kubeflow+services.svg",
+          url="https://assets.ubuntu.com/v1/97c081fa-Scale+data.svg",
           alt="",
-          width="279",
-          height="300",
+          width="350",
+          height="200",
           hi_def=True,
         ) | safe
       }}
+    </div>
+    <div class="col-7">
+      <h2>Scale data pipelines to thousands of jobs</h2>
+      <p class="p-heading--4 u-sv2">Offer data scientists a platform for large-scale continuous analytics</p>
+      <p>With Kubernetes at the core, scaling your ML compute with high availability is painless. </p>
+      <p>Multi-cloud Kubeflow delivers the elasticity of the public clouds and the governance of on-premise deployment.</p>
+      <p>Train your team once to work anywhere.</p>
+      <p>
+        <a href="/docs/install" class="p-button">Deploy Kubeflow at scale</a>
+      </p>
     </div>
   </div>
 </section>
@@ -239,32 +263,6 @@
       <ul class="p-inline-list">
         <li class="p-inline-list__item"><a href="#get-in-touch" class="js-invoke-modal">Talk to us about integration&nbsp;&rsaquo;</a></li>
       </ul>
-    </div>
-  </div>
-</section>
-
-<section class="p-strip--light">
-  <div class="row u-equal-height">
-    <div class="col-5 u-align--center u-hide--small u-vertically-center">
-      {{
-        image(
-          url="https://assets.ubuntu.com/v1/97c081fa-Scale+data.svg",
-          alt="",
-          width="350",
-          height="200",
-          hi_def=True,
-        ) | safe
-      }}
-    </div>
-    <div class="col-7">
-      <h2>Scale data pipelines to thousands of jobs</h2>
-      <p class="p-heading--4 u-sv2">Offer data scientists a platform for large-scale continuous analytics</p>
-      <p>With Kubernetes at the core, scaling your ML compute with high availability is painless. </p>
-      <p>Multi-cloud Kubeflow delivers the elasticity of the public clouds and the governance of on-premise deployment.</p>
-      <p>Train your team once to work anywhere.</p>
-      <p>
-        <a href="/docs/install" class="p-button">Deploy Kubeflow at scale</a>
-      </p>
     </div>
   </div>
 </section>
@@ -360,7 +358,7 @@
   </div>
 </section>
 
-<section class="p-strip--light">
+<section class="p-strip">
   <div class="row">
     <div class="col-5 u-vertically-center p-logo-section">
       <div class="p-logo-section__items">
@@ -393,8 +391,8 @@
             image(
               url="https://assets.ubuntu.com/v1/182d5546-logo-hp.png",
               alt="HP",
-              width="100",
-              height="66",
+              width="80",
+              height="80",
               hi_def=True,
               attrs={"class": "p-logo-section__logo"},
             ) | safe
@@ -421,7 +419,9 @@
       <p>Enjoy a public cloud like experience on-premise with <a href="http://maas.io">Metal As A Service</a>.</p>
       <p>Charms integrate your networking and storage of choice with logging, monitoring and alerting solutions, Kubernetes and Kubeflow.</p>
       <ul class="p-inline-list">
-	<li class="p-inline-list__item"><a href="https://lenovopress.com/lp1415-canonical-charmed-kubernetes-on-thinksystem-for-ai-development">Lenovo AI Development Reference Architecture"</a></li>
+	<li class="p-inline-list__item"><a href="https://lenovopress.com/lp1415-canonical-charmed-kubernetes-on-thinksystem-for-ai-development">Lenovo AI Development Reference Architecture</a></li>
+      </ul>
+      <ul class="p-inline-list">
         <li class="p-inline-list__item"><a href="https://ubuntu.com/engage/dell-kubeflow-reference-architecture">Dell and Canonical Reference Architecture</a></li>
         <li class="p-inline-list__item"><a href="/contact-us" class="js-invoke-modal">Contact us&nbsp;&rsaquo;</a></li>
       </ul>
