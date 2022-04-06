@@ -1,0 +1,29 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}Tutorials{% endblock %}
+{% block meta_copydoc %}https://docs.google.com/document/d/1YetdDlPGhz13jYG748DYsmIMlnaI6pA4glGzCsImzzA/edit#heading=h.jegvyy2vztti{% endblock %}
+
+{% block content %}
+<section class="p-strip">
+  <div class="u-fixed-width">
+    <h1 class="p-heading--2">Tutorials</h1>
+  </div>
+</section>
+
+<section class="p-strip is-shallow">
+  <div class="row u-equal-height">
+    {% for item in tutorials %}
+      <div class="col-4 p-card">
+        <div class="p-card__content">
+          <h2 class="p-heading--4">
+            <a href="{{ item.link }}">{{ item.title | safe | truncate(50, true) }}</a>
+          </h2>
+          <p>{{ item.summary | safe }}</p>
+        </div>
+        <p>Difficulty: <span class="p-tutorials-meter p-tutorials-meter--{{ item.dificulty }}">{{ item.difficulty }} out of 5</span></p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}
