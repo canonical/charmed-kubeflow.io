@@ -20,7 +20,7 @@ def init_tutorials(app, url_prefix):
         api_username=DISCOURSE_API_USERNAME,
         get_topics_query_id=2
       ),
-      index_topic_id=3749,
+      index_topic_id=2628,
       url_prefix=url_prefix,
     ),
     document_template="tutorials/tutorial.html",

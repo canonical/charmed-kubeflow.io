@@ -13,15 +13,22 @@
 <section class="p-strip is-shallow">
   <div class="row u-equal-height">
     {% for item in tutorials %}
-      <div class="col-4 p-card">
-        <div class="p-card__content">
-          <h2 class="p-heading--4">
-            <a href="{{ item.link }}">{{ item.title | safe | truncate(50, true) }}</a>
-          </h2>
-          <p>{{ item.summary | safe }}</p>
-        </div>
-        <p>Difficulty: <span class="p-tutorials-meter p-tutorials-meter--{{ item.dificulty }}">{{ item.difficulty }} out of 5</span></p>
+    <div class="col-4 blog-p-card--post">
+      <header class="blog-p-card__header--tutorial">
+        <h5 class="p-muted-heading u-no-margin--bottom">
+          {{ item.categories.name }}
+        </h5>
+      </header>
+      <div class="blog-p-card__content">
+        <h3 class="p-heading--3 u-nomargin--top u-no-margin--bottom">
+          <a href="{{ item.link }}">{{ item.title | safe }}</a>
+        </h3>
+        <p class="u-sv3">{{ item.summary | safe }}</p>
       </div>
+      <footer class="blog-p-card__footer">
+        Difficulty:<span class="l-tutorials-meter l-tutorials-meter--{{ item.difficulty }}">{{ item.difficulty }} out of 5</span>
+      </footer>
+    </div>
     {% endfor %}
   </div>
 </section>

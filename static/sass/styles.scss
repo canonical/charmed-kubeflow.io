@@ -10,6 +10,10 @@
 // Local styles
 @import "pattern_strips";
 @import "pattern_navigation";
+@import "pattern_blog-card";
+@import "layout_tutorials";
 
+@include layout-tutorials;
+@include blog-p-card;
 @include local-p-strips;
 @include local-p-navigation;
