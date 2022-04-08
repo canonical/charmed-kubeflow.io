@@ -34,7 +34,7 @@
     </aside>
   </div>
   <div class="col-9">
-    <div class="p-strip is-shallow  p-tutorial-content">
+    <div class="p-strip is-shallow p-tutorial-content">
       {% for section in document.sections %}
         <section class="p-tutorial-section" id="{{ loop.index }}-{{ section['slug']}}">
           <h2 class="p-heading--3">{{ loop.index }}. {{ section["title"]}}</h2>
@@ -68,13 +68,14 @@
           {% endif %}
           
           <hr class="u-sv3">
-          <footer class="p-tutorial-section__footer row u-no-padding--left u-no-padding--right">
-            <div class="col-6 col-small-2 col-medium-3 u-vertically-center">
+          <footer class="row p-tutorial-section__footer u-no-padding--left u-no-padding--right">
+            <div class="col-3 u-vertically-center">
               <a class="p-tutorial__bug-link" href="https://discourse.jujucharms.com{{ document.topic_path }}">
                 <small>Suggest changes&nbsp;&rsaquo;</small>
               </a>
             </div>
-            <div class="col-6 col-small-2 col-medium-3 u-align--right">
+            <div class="col-3"></div>
+            <div class="col-3 u-align--right">
               <div class="p-tutorial__duration">
                 <small>
                   <span class="u-hide--small">about</span>
@@ -88,22 +89,22 @@
               </div>
               <div class="p-tutorial__pagination">
                 {% if loop.first %}
-                  <button class="p-tutorial__pagination-item--prev p-button--neutral has-icon u-no-margin--bottom" disabled style="margin-right: 1rem;">
-                    <i class="p-icon--contextual-menu">Previous step</i>
+                  <button class="p-tutorial__pagination-item--prev p-button has-icon u-no-margin--bottom" disabled style="margin-right: 1rem;">
+                    <i class="p-icon--chevron-up">Previous step</i>
                   </button>
                 {% else %}
-                  <a href="#{{ loop.index - 1 }}-{{ loop.previtem['slug'] }}" class="p-tutorial__pagination-item--prev p-button--neutral has-icon u-no-margin--bottom" style="margin-right: 1rem;">
-                    <i class="p-icon--contextual-menu">Previous step</i>
+                  <a href="#{{ loop.index - 1 }}-{{ loop.previtem['slug'] }}" class="p-tutorial__pagination-item--prev p-button has-icon u-no-margin--bottom" style="margin-right: 1rem;">
+                    <i class="p-icon--chevron-up">Previous step</i>
                   </a>
                 {% endif %}
 
                 {% if loop.last %}
-                  <button class="p-tutorial__pagination-item--next p-button--neutral has-icon u-no-margin--bottom" disabled>
-                    <i class="p-icon--contextual-menu">Next step</i>
+                  <button class="p-tutorial__pagination-item--next p-button has-icon u-no-margin--bottom" disabled>
+                    <i class="p-icon--chevron-down">Next step</i>
                   </button>
                 {% else %}
-                  <a href="#{{ loop.index + 1 }}-{{ loop.nextitem['slug'] }}" class="p-tutorial__pagination-item--next p-button--neutral has-icon u-no-margin--bottom">
-                    <i class="p-icon--contextual-menu">Next step</i>
+                  <a href="#{{ loop.index + 1 }}-{{ loop.nextitem['slug'] }}" class="p-tutorial__pagination-item--next p-button has-icon u-no-margin--bottom">
+                    <i class="p-icon--chevron-down">Next step</i>
                   </a>
                 {% endif %}
               </div>
@@ -115,5 +116,106 @@
   </div>
 </div>
 
+<script>
+  (function() {
+    const tutorialFeedbackOptions = document.querySelector('.p-tutorial__feedback-options');
+    const tutorialFeedbackIcons = document.querySelectorAll('.p-tutorial__feedback-icon');
+    const tutorialFeedbackResult = document.querySelector('.p-tutorial__feedback-result');
+
+    if (dataLayer) {
+      tutorialFeedbackIcons.forEach(icon => {
+        icon.addEventListener('click', e => {
+          const feedbackValue = e.target.getAttribute('data-feedback-value');
+          dataLayer.push({
+            'event' : 'GAEvent',
+            'eventCategory' : 'feedback',
+            'eventAction' : feedbackValue,
+            'eventLabel' : feedbackValue,
+            'eventValue' : undefined
+          });
+
+          tutorialFeedbackOptions.classList.add('u-hide');
+          tutorialFeedbackResult.classList.remove('u-hide');
+        });
+      });
+    }
+  })();
+</script>
+
+<script>
+(function() {
+  function setActiveLink(navigationItems) {
+    navigationItems.forEach(item => {
+      const link = item.querySelector('.p-tutorial__nav-link');
+      if (link.getAttribute('href') === window.location.hash) {
+        item.classList.add('is-active');
+      } else {
+        item.classList.remove('is-active');
+      }
+    });
+  };
+
+  const navigationItems = document.querySelectorAll('.p-tutorial__nav-item');
+  const toggleButton = document.querySelector('.p-tutorial__nav-toggle');
+
+  setActiveLink(navigationItems);
+
+  window.addEventListener('hashchange', e => {
+    e.preventDefault();
+    setActiveLink(navigationItems);
+  });
+
+  sectionIds = [];
+
+  const tutorialSections = document.querySelectorAll('.p-tutorial__content section');
+  tutorialSections.forEach(section => {
+    sectionIds.push(section.id);
+  });
+
+  // Navigate to first tutorial step on load if no URL hash
+  if (!window.location.hash) {
+    const firstSectionLink = document.querySelector('.p-tutorial__nav-link');
+    window.location.hash = firstSectionLink.getAttribute('href');
+  } else {
+    // Redirect #0, #1 etc. to the correct section
+    match = window.location.hash.match(/^#(\d+)$/);
+
+    if (match) {
+      index = parseInt(match[1]);
+      sectionId = sectionIds[index];
+      window.location.hash = `#${sectionId}`;
+      window.location.reload();
+    }
+  }
+})();
+</script>
+
+<script>
+  (function() {
+    const polls = document.querySelectorAll('.poll');
+
+    if (dataLayer) {
+      polls.forEach(poll => {
+        const answers = poll.querySelectorAll('[type="radio"]');
+        const pollId = poll.getAttribute('data-poll-name');
+
+        answers.forEach(answer => {
+          answer.addEventListener('change', e => {
+            const answerLabel = document.querySelector(`label[for="${e.target.id}"]`);
+            const eventLabel = answerLabel.innerText;
+            const eventAction = document.getElementById(pollId).innerText;
+            dataLayer.push({
+              'event' : 'GAEvent',
+              'eventCategory' : 'survey',
+              'eventAction' : eventAction,
+              'eventLabel' : eventLabel,
+              'eventValue' : undefined
+            });
+          });
+        });
+      });
+    }
+  })();
+</script>
 
 {% endblock %}
