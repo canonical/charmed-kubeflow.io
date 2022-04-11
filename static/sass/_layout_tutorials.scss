@@ -1,24 +1,6 @@
 @mixin layout-tutorials {
   $color-highlight: #77216f !default;
 
-  .l-tutorials__breadcrumb {
-    display: none;
-
-    @media only screen and (min-width: $breakpoint-small) {
-      display: block;
-    }
-  }
-
-  .l-tutorials__filters {
-    background-color: $color-x-light;
-    box-shadow: 4px 0 4px rgba(0, 0, 0, 0.3);
-  }
-
-  .l-tutorials-card__footer--inner {
-    display: flex;
-    justify-content: space-between;
-  }
-
   .l-tutorials-meter {
     background-image: url("#{$assets-path}19c4273e-level+of+difficulty.svg");
     background-position-x: -75px;

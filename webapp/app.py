@@ -4,7 +4,6 @@ import talisker.requests
 from canonicalwebteam.flask_base.app import FlaskBase
 from canonicalwebteam import image_template
 from canonicalwebteam.discourse import DiscourseAPI, DocParser, Docs
-from canonicalwebteam.templatefinder import TemplateFinder
 
 from flask import render_template, make_response
 
@@ -35,10 +34,8 @@ main_docs = Docs(
 )
 main_docs.init_app(app)
 
-template_finder_view = TemplateFinder.as_view("template_finder")
-app.add_url_rule("/", view_func=template_finder_view)
-app.add_url_rule("/<path:subpath>", view_func=template_finder_view)
 init_tutorials(app, "/tutorials")
+
 
 @app.context_processor
 def utility_processor():
@@ -46,7 +43,7 @@ def utility_processor():
 
 
 @app.route("/")
-def index():
+def index_temp():
     return render_template("index.html")
 
 
