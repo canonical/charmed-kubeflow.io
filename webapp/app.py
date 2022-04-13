@@ -43,7 +43,7 @@ def utility_processor():
 
 
 @app.route("/")
-def index_temp():
+def index():
     return render_template("index.html")
 
 
