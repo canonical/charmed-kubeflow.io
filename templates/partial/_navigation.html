@@ -26,6 +26,9 @@
         <li class="p-navigation__item" role="menuitem">
           <a class="p-navigation__link" href="https://discourse.charmhub.io/tags/kubeflow">Community</a>
         </li>
+        <li class="p-navigation__item {% if request.path.startswith('/tutorials') %}is-selected{% endif %}" role="menuitem">
+          <a class="p-navigation__link" href="/tutorials">Tutorials</a>
+        </li>
       </ul>
     </nav>
   </div>

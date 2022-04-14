@@ -7,6 +7,8 @@ from canonicalwebteam.discourse import DiscourseAPI, DocParser, Docs
 
 from flask import render_template, make_response
 
+from webapp.tutorials.views import init_tutorials
+
 # Rename your project below
 app = FlaskBase(
     __name__,
@@ -31,6 +33,8 @@ main_docs = Docs(
     blueprint_name="main_docs",
 )
 main_docs.init_app(app)
+
+init_tutorials(app, "/tutorials")
 
 
 @app.context_processor
