@@ -6,6 +6,9 @@
 
 {% block content %}
 <section class="p-strip--suru-dark">
+  {% if not date_has_passed("2022-09-07") %}
+    {% include "partial/_beta-banner.html" %}
+  {% endif %}
   <div class="u-fixed-width">
     <h1>Tutorials</h1>
   </div>

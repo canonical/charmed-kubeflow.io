@@ -1,3 +1,4 @@
+from datetime import datetime
 import talisker.requests
 
 # Packages
@@ -37,9 +38,18 @@ main_docs.init_app(app)
 init_tutorials(app, "/tutorials")
 
 
+def date_has_passed(date_str):
+    try:
+        date = datetime.strptime(date_str, "%Y-%m-%d")
+        present = datetime.now()
+        return present > date
+    except ValueError:
+        return False
+
+
 @app.context_processor
 def utility_processor():
-    return {"image": image_template}
+    return {"image": image_template, "date_has_passed": date_has_passed}
 
 
 @app.route("/")

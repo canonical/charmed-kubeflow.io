@@ -26,6 +26,9 @@
 {% endmacro %}
 
 <section class="p-strip u-extra-space">
+  {% if not date_has_passed("2022-09-06") %}
+    {% include "partial/_beta-banner.html" %}
+  {% endif %}
   <div class="row">
     <aside class="col-3">
       {% if versions | length > 1 %}
