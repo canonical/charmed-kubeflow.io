@@ -1,35 +1,39 @@
-<header id="navigation" class="p-navigation">
+<header id="navigation" class="p-navigation is-dark">
   <div class="p-navigation__row">
     <div class="p-navigation__banner">
-      <div class="p-navigation__logo u-vertically-center">
-        <a class="p-navigation__link" href="/" style="color:white;">
-          Charmed Kubeflow
+      <div class="p-navigation__tagged-logo">
+        <a class="p-navigation__link" href="/">
+          <div class="p-navigation__logo-tag">
+            <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="">
+          </div>
+          <span class="p-navigation__logo-title">Canonical Kubeflow</span>
         </a>
       </div>
       <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
       <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
     </div>
+
     <nav class="p-navigation__nav">
-      <span class="u-off-screen">
-        <a href="#main-content">Jump to main content</a>
-      </span>
-      <ul class="p-navigation__items" role="menu">
-        <li class="p-navigation__item {% if request.path.startswith('/docs') %}is-selected{% endif %}" role="menuitem">
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item {% if request.path.startswith('/docs') %}is-selected{% endif %}">
           <a class="p-navigation__link" href="/docs">Docs</a>
         </li>
-        <li class="p-navigation__item" role="menuitem">
+        <li class="p-navigation__item">
           <a class="p-navigation__link" href="https://github.com/juju-solutions/bundle-kubeflow">Code</a>
         </li>
-        <li class="p-navigation__item" role="menuitem">
+        <li class="p-navigation__item">
           <a class="p-navigation__link" href="https://github.com/juju-solutions/bundle-kubeflow/issues">Bugs</a>
         </li>
-        <li class="p-navigation__item" role="menuitem">
+        <li class="p-navigation__item">
           <a class="p-navigation__link" href="https://discourse.charmhub.io/tags/kubeflow">Community</a>
         </li>
-        <li class="p-navigation__item {% if request.path.startswith('/tutorials') %}is-selected{% endif %}" role="menuitem">
+        <li class="p-navigation__item {% if request.path.startswith('/tutorials') %}is-selected{% endif %}">
           <a class="p-navigation__link" href="/tutorials">Tutorials</a>
         </li>
       </ul>
+      <ul class="p-navigation__items global-nav"></ul>
     </nav>
   </div>
 </header>
+
+<script src="{{ versioned_static('js/dist/global-nav.js') }}"></script>
