@@ -148,11 +148,10 @@
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <script src="{{ versioned_static('js/dist/global-nav.js') }}"></script>
     <script src="{{ versioned_static('js/dist/cookie-policy.js') }}"></script>
-
+    
     {% include "partial/_navigation.html" %}
-
+    
     <div id="main">{% block content %}{% endblock content %}</div>
 
     {% include "partial/_footer.html" %}
