@@ -5,6 +5,7 @@ import talisker.requests
 from canonicalwebteam.flask_base.app import FlaskBase
 from canonicalwebteam import image_template
 from canonicalwebteam.discourse import DiscourseAPI, DocParser, Docs
+from canonicalwebteam.search import build_search_view
 
 from flask import render_template, make_response
 
@@ -34,6 +35,16 @@ main_docs = Docs(
     blueprint_name="main_docs",
 )
 main_docs.init_app(app)
+
+app.add_url_rule(
+    "/docs/search",
+    "docs-search",
+    build_search_view(
+        session=session,
+        site="charmed-kubeflow.io/docs",
+        template_path="docs/search.html",
+    ),
+)
 
 init_tutorials(app, "/tutorials")
 

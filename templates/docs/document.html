@@ -5,30 +5,50 @@
 {% block title %}{{ document.title }} | Documentation{% endblock %}
 
 {% block content %}
-{% macro create_navigation(nav_items) %}
-  <ul>
+{% macro create_navigation(nav_items, expandable=False, expanded=False) %}
+  <ul class="p-side-navigation__list">
     {% for element in nav_items %}
-    <li>
+    <li class="p-side-navigation__item">
       {% if element.navlink_href %}
-        <a href="{{ element.navlink_href }}"
-          {% if request.path == element.navlink_href %}aria-current="page"{% endif %}
-        >{{ element.navlink_text }}</a>
+      <a
+        class="p-side-navigation__link {% if expandable and element.children %}is-expandable{% endif %}"
+        href="{{ element.navlink_href }}"
+        {% if expandable and element.children %}aria-expanded={% if expanded %}"true"{% else %}"false"{% endif %}{% endif %}
+        {% if element.is_active %}aria-current="page"{% endif %}
+      >{{ element.navlink_text }}</a>
       {% else %}
-        <strong>{{ element.navlink_text }}</strong>
+        <span
+          class="p-side-navigation__text {% if expandable and element.children %}is-expandable{% endif %}"
+          {% if expandable and element.children %}aria-expanded={% if expanded %}"true"{% else %}"false"{% endif %}{% endif %}
+          {% if element.is_active %}aria-current="page"{% endif %}
+        >{{ element.navlink_text }}</span>
       {% endif %}
 
-      {% if element.children %}
-        {{ create_navigation(element.children) }}
+      {% if expandable %}
+        {% if element.children %}
+            <button class="p-side-navigation__expand" aria-expanded={% if element.is_active or element.has_active_child %}"true"{% else %}"false"{% endif %} aria-label="show submenu for {{ element.navlink_text }}"></button>
+        {% endif %}
+        {{ create_navigation(element.children, expandable, element.is_active or element.has_active_child) }}
+      {% else %}
+        {% if element.children %}
+          {{ create_navigation(element.children, expandable) }}
+        {% endif %}
       {% endif %}
     </li>
     {% endfor %}
   </ul>
 {% endmacro %}
 
+<section id="search-docs" class="p-strip--light is-shallow">
+  <div class="row">
+    <form class="p-search-box u-no-margin--bottom" action="/docs/search">
+      <input type="search" class="p-search-box__input" name="q" {% if query %}value="{{ query }}"{% endif %} placeholder="Search documentation" required/>
+      <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search">Search</i></button>
+    </form>
+  </div>
+</section>
+
 <section class="p-strip u-extra-space">
-  {% if not date_has_passed("2022-09-06") %}
-    {% include "partial/_beta-banner.html" %}
-  {% endif %}
   <div class="row">
     <aside class="col-3">
       {% if versions | length > 1 %}
@@ -41,7 +61,7 @@
       <select>
       {% endif %}
 
-      <nav data-js="navigation" class="p-side-navigation--raw-html" id="{{ navigation['path'] or 'default' }}">
+      <nav data-js="navigation" class="p-side-navigation" id="{{ navigation['path'] or 'default' }}">
         <a href="#{{ navigation['path'] or 'default' }}" class="p-side-navigation__toggle js-drawer-toggle" aria-controls="{{ navigation['path'] or 'default' }}">
           Toggle side navigation
         </a>
@@ -53,18 +73,24 @@
             </a>
           </div>
           {% for nav_group in navigation.nav_items %}
-            {% if nav_group.navlink_href %}
-              <h3>
-                <a
-                  class="p-link--soft"
-                  href="{{ nav_group.navlink_href }}"
-                  {% if request.path == nav_group.navlink_href %}aria-current="page"{% endif %}
-                >{{ nav_group.navlink_text }}</a>
-            </h3>
-            {% elif nav_group.navlink_text %}
-               <h3>{{ nav_group.navlink_text }}</h3>
+          {% if not nav_group.hidden %}
+            {% if nav_group.navlink_text %}
+              {% if nav_group.navlink_href %}
+                <h3 class="p-side-navigation__heading--linked">
+                  <a class="p-side-navigation__link" href="{{ nav_group.navlink_href }}" {% if nav_group.is_active %}aria-current="page"{% endif %}>
+                    {{ nav_group.navlink_text }}
+                  </a>
+                </h3>
+              {% else %}
+                <h3 class="p-side-navigation__heading">{{ nav_group.navlink_text }}</h3>
+              {% endif %}
             {% endif %}
-            {{ create_navigation(nav_group.children) }}
+            {#
+              Use `create_navigation(nav_group.children)` for a default, fully expanded navigation.
+              Use `create_navigation(nav_group.children, expandable=True)` for the nested nav levels to expand only when parent page is active.
+            #}
+            {{ create_navigation(nav_group.children, expandable=True) }}
+          {% endif %}
           {% endfor %}
         </div>
       </nav>
@@ -84,4 +110,6 @@
 </section>
 
 <script src="{{ versioned_static('js/prism.js') }}"></script>
+<script src="{{ versioned_static('js/side-navigation.js') }}"></script>
+
 {% endblock %}

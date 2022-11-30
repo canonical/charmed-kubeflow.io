@@ -1,41 +1,43 @@
 {% extends "base_layout.html" %}
 
-{% block meta %}
-    {{ super() }}
-    <meta name="robots" content="noindex" />
-{% endblock %}
+{% block head_extra %}<meta name="robots" content="noindex" />{% endblock %}
 
-{% block page_class %}docs{% endblock %}
-{% block content_class %}l-docs-wrapper{% endblock %}
-{% block title %}Search results{% if query %} for "{{query}}"{% endif %}{% endblock %}
+{% block title %}Search results{% if query %} for "{{ query }}"{% endif %} | Ubuntu{% endblock %}
 
 {% block content %}
-  <section id="search-docs" class="p-strip--image is-shallow" style="background-image: url('https://assets.ubuntu.com/v1/e54487e2-maas-docs-suru.png')">
-    <div class="row">
+
+  <div class="p-strip is-shallow">
+    <div class="u-fixed-width">
+      {% if query %}
+        {% if estimatedTotal == 0 %}
+          <h1 class="p-heading--2">Sorry we couldn't find "{{ query }}" in docs</h1>
+        {% else %}
+          <h1 class="p-heading--2">Search results for "{{ query }}" in docs</h1>
+        {% endif %}
+      {% else %}
+        <h1>Search Ubuntu and Canonical sites</h1>
+      {% endif %}
+    </div>
+  </div>
+
+  {# search form #}
+  <div class="p-strip--light is-shallow">
+    <div class="u-fixed-width">
       <form class="p-search-box u-no-margin--bottom" action="/docs/search">
-        <input type="search" class="p-search-box__input" name="q" {% if query %}value="{{ query }}"{% endif %} placeholder="Search documentation" required/>
-        <button type="button" class="p-search-box__reset" alt="reset" onclick="this.previousElementSibling.value = '';this.previousElementSibling.focus()"><i class="p-icon--close">Reset</i></button>
-        <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search">Search</i></button>
+        <label for="search-input" class="u-off-screen">Search</label>
+        <input class="p-search-box__input" name="q" id="search-input" type="search" {% if query %}value="{{ query }}"{% endif %} placeholder="e.g. microk8s status" />
+        {% if siteSearch %}
+          <input name="siteSearch" type="hidden" value="{{ siteSearch }}" />
+        {% endif %}
+        <button type="submit" alt="search" class="p-search-box__button" alt="search"><i class="p-icon--search"></i></button>
       </form>
     </div>
-  </section>
+  </div>
 
-  <div class="l-docs">
-    <div class="p-strip is-shallow u-no-padding--bottom">
-      <div class="row">
-        <div class="col-12">
-          {% if results and results.entries %}
-            <h1 class="p-heading--2 u-no-margin--bottom">We've found these results for your search <strong>"{{ query }}"</strong></h1>
-          {% else %}
-            <h1 class="p-heading--2 u-no-margin--bottom">We haven't found any results for your search <strong>"{{ query }}"</strong>.</h1>
-          {% endif %}
-        </div>
-      </div>
-    </div>
-
-    {% if  results and results.entries %}
-        {% for item in results.entries %}
-        <div class="p-strip is-bordered is-shallow">
+  {% if results %}
+    {% if results.entries %}
+      {% for item in results.entries %}
+        <div class="p-strip is-shallow">
           <div class="row">
             <div class="col-12">
               <h5><a href="{{ item.link }}" class="title-main">{{ item.htmlTitle | safe}}</a></h5>
@@ -46,47 +48,44 @@
             </div>
           </div>
         </div>
-        {% endfor %}
-        <div class="p-strip p-article-pagination">
-            {% if  results.queries and results.queries.previousPage %}
-                <a
-                  class="p-article-pagination__link--previous"
-                  href="/docs/search?q={{ query }}&amp;start={{ results.queries.previousPage.0.startIndex }}{% if siteSearch %}&amp;siteSearch={{ siteSearch }}{% endif %}"
-                >
-                    <span class="p-article-pagination__label">Previous</span>
-                </a>
+      {% endfor %}
+
+      <div class="p-strip">
+        <div class="row">
+          <div class="col-6 u-align--left">
+            {% if results.queries and results.queries.previousPage %}
+              <a href="/docs/search?q={{ query }}&amp;start={{ results.queries.previousPage[0].startIndex }}{% if siteSearch %}&amp;siteSearch={{ siteSearch }}{% endif %}">&#8249;&nbsp;Previous</a>
             {% endif %}
+          </div>
+
+          <div class="col-6 u-align--right">
             {% if results.queries and results.queries.nextPage %}
-              <a
-                class="p-article-pagination__link--next"
-                href="/docs/search?q={{ query }}&amp;start={{ results.queries.nextPage.0.startIndex }}{% if siteSearch %}&amp;siteSearch={{ siteSearch }}{% endif %}"
-              >
-                <span class="p-article-pagination__label">Next</span>
-              </a>
+              <a href="/docs/search?q={{ query }}&amp;start={{ results.queries.nextPage[0].startIndex }}{% if siteSearch %}&amp;siteSearch={{ siteSearch }}{% endif %}">Next&nbsp;&#8250;</a>
             {% endif %}
-        </div>
-    {% else %}
-    <div class="p-strip">
-      <div class="row">
-        <div class="col-6">
-          <h3>Why not try widening your search?</h3>
-          <p>You can do this by:</p>
-          <ul class="p-list">
-            <li class="p-list__item is-ticked">Adding alternative words or phrases</li>
-            <li class="p-list__item is-ticked">Using individual words instead of phrases</li>
-            <li class="p-list__item is-ticked">Trying a different spelling</li>
-          </ul>
-        </div>
-        <div class="col-6">
-          <h3>Still no luck?</h3>
-          <ul class="p-list">
-            <li class="p-list__item is-ticked"><a href="/docs">Visit charmed-kubeflow.io/docs</a></li>
-            <li class="p-list__item is-ticked"><a href="https://discourse.charmed-kubeflow.io">Ask on the forum</a></li>
-          </ul>
+          </div>
         </div>
       </div>
-    </div>
+    {% else %}
+      <div class="p-strip">
+        <div class="row">
+          <div class="col-6">
+            <h3>Why not try widening your search?</h3>
+            <p>You can do this by:</p>
+            <ul class="p-list">
+              <li class="p-list__item is-ticked">Adding alternative words or phrases</li>
+              <li class="p-list__item is-ticked">Using individual words instead of phrases</li>
+              <li class="p-list__item is-ticked">Trying a different spelling</li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <h3>Still no luck?</h3>
+            <ul class="p-list">
+              <li class="p-list__item is-ticked"><a href="/">Visit the Charmed Kubeflow homepage</a></li>
+              <li class="p-list__item is-ticked"><a href="https://discourse.charmhub.io/tag/kubeflow">Visit the forum</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     {% endif %}
-  </div>
+  {% endif %}
 {% endblock content %}
-
