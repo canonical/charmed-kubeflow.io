@@ -35,9 +35,4 @@
       padding: $sp-medium $sp-small;
     }
   }
-
-  .blog-p-card__header--tutorial {
-    @extend %post-card-header;
-    border-top: 3px solid #77216f;
-  }
 }
