@@ -9,8 +9,6 @@ from canonicalwebteam.search import build_search_view
 
 from flask import render_template, make_response
 
-from webapp.tutorials.views import init_tutorials
-
 # Rename your project below
 app = FlaskBase(
     __name__,
@@ -45,8 +43,6 @@ app.add_url_rule(
         template_path="docs/search.html",
     ),
 )
-
-init_tutorials(app, "/tutorials")
 
 
 def date_has_passed(date_str):
@@ -99,3 +95,8 @@ def sitemap_links():
     response.headers["Content-Type"] = "application/xml"
 
     return response
+
+
+@app.errorhandler(410)
+def deleted_error(error):
+    return render_template("410.html", message=error.description), 410
