@@ -1,0 +1,19 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}404: Page not found{% endblock %}
+
+{% block meta_description %}Sorry, we can't find the page you're looking for.{% endblock %}
+
+{% block content %}
+<div class="p-strip is-deep u-extra-space">
+  <div class="row">
+    <div class="col-6">
+      <img src="https://assets.ubuntu.com/v1/4de1c56c-404_v1.svg" alt="" width="400" height="400" />
+    </div>
+    <div class="col-6">
+      <h1>410: Page deleted</h1>
+      <p class="p-heading--4">{{ message or "This page has been removed" }}</p>
+    </div>
+  </div>
+</div>
+{% endblock content %}
