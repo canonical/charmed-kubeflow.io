@@ -4,7 +4,7 @@
 
 {% block content %}
 <section class="p-strip--suru">
-  {% if not date_has_passed("2022-09-06") %}
+  {% if schedule_banner("2023-03-01", "2023-03-22") %}
     {% include "partial/_beta-banner.html" %}
   {% endif %}
   <div class="row u-equal-height">
