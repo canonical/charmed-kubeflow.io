@@ -45,18 +45,19 @@ app.add_url_rule(
 )
 
 
-def date_has_passed(date_str):
+def schedule_banner(start_date: str, end_date: str):
     try:
-        date = datetime.strptime(date_str, "%Y-%m-%d")
+        end = datetime.strptime(end_date, "%Y-%m-%d")
+        start = datetime.strptime(start_date, "%Y-%m-%d")
         present = datetime.now()
-        return present > date
+        return start <= present < end
     except ValueError:
         return False
 
 
 @app.context_processor
 def utility_processor():
-    return {"image": image_template, "date_has_passed": date_has_passed}
+    return {"image": image_template, "schedule_banner": schedule_banner}
 
 
 @app.route("/")
