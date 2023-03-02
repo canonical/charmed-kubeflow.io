@@ -49,6 +49,9 @@
 </section>
 
 <section class="p-strip u-extra-space">
+  {% if schedule_banner("2023-03-08", "2023-03-22") %}
+    {% include "partial/_beta-banner.html" %}
+  {% endif %}
   <div class="row">
     <aside class="col-3">
       {% if versions | length > 1 %}
