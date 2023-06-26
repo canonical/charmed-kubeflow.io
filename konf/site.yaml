@@ -1,6 +1,6 @@
 domain: charmed-kubeflow.io
 
-image: prod-comms.docker-registry.canonical.com/charmed-kubeflow.io
+image: prod-comms.ps5.docker-registry.canonical.com/charmed-kubeflow.io
 
 env:
   - name: SENTRY_DSN
