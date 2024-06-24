@@ -4,15 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta https-equiv="Accept-CH" content="DPR, Viewport-Width, Width" />
-
     <title>
-      {% block title %}Kubeflow AI and MLOps at any scale{% endblock %} | Charmed
+      {% block title %}Kubeflow AI and MLOps at any scale{% endblock %}
+      | Charmed
       Kubeflow
     </title>
-
     <link rel="preconnect" href="https://www.google-analytics.com" />
     <link rel="preconnect" href="https://www.gstatic.com" />
-
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -27,144 +25,102 @@
       })(window, document, "script", "dataLayer", "GTM-K7QJ3BF");
     </script>
     <!-- End Google Tag Manager -->
-
-    <script
-      src="https://assets.ubuntu.com/v1/703e23c9-lazysizes+noscript+native-loading.5.1.2.min.js"
-      defer
-    ></script>
-
+    <script src="https://assets.ubuntu.com/v1/703e23c9-lazysizes+noscript+native-loading.5.1.2.min.js"
+            defer></script>
     <!-- GitHub buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://assets.ubuntu.com/v1/16c27f81-COF%20favicon-16x16.png"
-      sizes="16x16"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://assets.ubuntu.com/v1/be7e4cc6-COF-favicon-32x32.png"
-      sizes="32x32"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://assets.ubuntu.com/v1/b3026a35-favicon-96x96.png"
-      sizes="96x96"
-    />
-
-    <link
-      rel="apple-touch-icon"
-      sizes="144x144"
-      href="https://assets.ubuntu.com/v1/3361409d-apple-touch-icon-144x144-precomposed.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="114x114"
-      href="https://assets.ubuntu.com/v1/5fe4d3c8-apple-touch-icon-114x114-precomposed.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="72x72"
-      href="https://assets.ubuntu.com/v1/09460d9a-apple-touch-icon-72x72-precomposed.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      href="https://assets.ubuntu.com/v1/c39e0fed-apple-touch-icon.png"
-    />
-
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href="https://assets.ubuntu.com/v1/e8c07df6-Ubuntu-L_W.woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href="https://assets.ubuntu.com/v1/7f100985-Ubuntu-Th_W.woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href="https://assets.ubuntu.com/v1/f8097dea-Ubuntu-LI_W.woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href="https://assets.ubuntu.com/v1/fff37993-Ubuntu-R_W.woff2"
-      crossorigin
-    />
-
-    <meta
-      name="description"
-      content="{% block meta_description %}Enterprise-ready Charmed Kubeflow, the fully supported MLOps platform for any cloud.{% endblock %}"
-    />
-    <meta
-      name="copydoc"
-      content="https://docs.google.com/document/d/1Wvhl0yYV_w0BJsyZbQFKg_QV6RjMLbmQU3x0rsD2F4Q/edit"
-    />
-
+    <link rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="https://assets.ubuntu.com/v1/be7e4cc6-COF-favicon-32x32.png" />
+    <link rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="https://assets.ubuntu.com/v1/16c27f81-COF%20favicon-16x16.png" />
+    <link rel="manifest" href="{{ versioned_static("files/site.webmanifest") }}" />
+    <!-- Serving favicon for search engines locally -->
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ versioned_static("favicons/COF-favicon-48x48.png") }}" />
+    <link rel="icon"
+          type="image/png"
+          href="https://assets.ubuntu.com/v1/b3026a35-favicon-96x96.png"
+          sizes="96x96" />
+    <link rel="apple-touch-icon"
+          sizes="180x180"
+          href="https://assets.ubuntu.com/v1/f38b9c7e-COF%20apple-touch-icon.png" />
+    <link rel="apple-touch-icon"
+          sizes="144x144"
+          href="https://assets.ubuntu.com/v1/3361409d-apple-touch-icon-144x144-precomposed.png" />
+    <link rel="apple-touch-icon"
+          sizes="114x114"
+          href="https://assets.ubuntu.com/v1/5fe4d3c8-apple-touch-icon-114x114-precomposed.png" />
+    <link rel="apple-touch-icon"
+          sizes="72x72"
+          href="https://assets.ubuntu.com/v1/09460d9a-apple-touch-icon-72x72-precomposed.png" />
+    <link rel="apple-touch-icon"
+          href="https://assets.ubuntu.com/v1/c39e0fed-apple-touch-icon.png" />
+    <link rel="preload"
+          as="font"
+          type="font/woff2"
+          href="https://assets.ubuntu.com/v1/e8c07df6-Ubuntu-L_W.woff2"
+          crossorigin />
+    <link rel="preload"
+          as="font"
+          type="font/woff2"
+          href="https://assets.ubuntu.com/v1/7f100985-Ubuntu-Th_W.woff2"
+          crossorigin />
+    <link rel="preload"
+          as="font"
+          type="font/woff2"
+          href="https://assets.ubuntu.com/v1/f8097dea-Ubuntu-LI_W.woff2"
+          crossorigin />
+    <link rel="preload"
+          as="font"
+          type="font/woff2"
+          href="https://assets.ubuntu.com/v1/fff37993-Ubuntu-R_W.woff2"
+          crossorigin />
+    <meta name="description"
+          content="{% block meta_description %}Enterprise-ready Charmed Kubeflow, the fully supported MLOps platform for any cloud.{% endblock %}" />
+    <meta name="copydoc"
+          content="https://docs.google.com/document/d/1Wvhl0yYV_w0BJsyZbQFKg_QV6RjMLbmQU3x0rsD2F4Q/edit" />
     <meta name="theme-color" content="#414BB2" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://charmed-kubeflow.io" />
     <meta property="og:site_name" content="charmed-kubeflow.io" />
-
     {% if self.title() %}
-    <meta
-      name="twitter:title"
-      content="{{ self.title() }} | Charmed Kubeflow"
-    />
-    <meta property="og:title" content="{{ self.title() }} | Charmed Kubeflow" />
-    {% endif %} {% if self.meta_description() %}
-    <meta name="twitter:description" content="{{ self.meta_description() }}" />
-    <meta property="og:description" content="{{ self.meta_description() }}" />
+      <meta name="twitter:title" content="{{ self.title() }} | Charmed Kubeflow" />
+      <meta property="og:title" content="{{ self.title() }} | Charmed Kubeflow" />
     {% endif %}
-
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="{{ versioned_static('css/styles.css') }}"
-    />
+    {% if self.meta_description() %}
+      <meta name="twitter:description" content="{{ self.meta_description() }}" />
+      <meta property="og:description" content="{{ self.meta_description() }}" />
+    {% endif %}
+    <link rel="stylesheet"
+          type="text/css"
+          media="screen"
+          href="{{ versioned_static("css/styles.css") }}" />
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-K7QJ3BF"
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7QJ3BF"
         height="0"
         width="0"
-        style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
+        style="display: none;
+               visibility: hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-
     <script src="{{ versioned_static('js/dist/cookie-policy.js') }}"></script>
-    
     {% include "partial/_navigation.html" %}
-    
-    <div id="main">{% block content %}{% endblock content %}</div>
-
+    <div id="main">
+      {% block content %}
+      {% endblock content %}
+    </div>
     {% include "partial/_footer.html" %}
-
-    <div
-      class="u-hide"
-      id="contact-form-container"
-      data-form-location="/includes/contact-us"
-      data-form-id="1337"
-      data-lp-id="2313"
-      data-return-url="http://charmed-kubeflow.io/thank-you"
-      data-lp-url=""
-    ></div>
+    <div class="u-hide"
+         id="contact-form-container"
+         data-form-location="/includes/contact-us"
+         data-form-id="1337"
+         data-lp-id="2313"
+         data-return-url="http://charmed-kubeflow.io/thank-you"
+         data-lp-url=""></div>
     <script src="{{ versioned_static('js/dynamic-contact-form.js') }}"></script>
   </body>
 </html>
