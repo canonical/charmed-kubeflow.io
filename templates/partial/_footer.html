@@ -1,19 +1,19 @@
-<footer class="p-strip--light">
+{% macro footer_contents() %}
   <div class="row">
     <div class="col-12">
       <p>&copy; {{ now("%Y") }} Canonical Ltd.</p>
       <nav>
         <ul class="p-inline-list--middot">
           <li class="p-inline-list__item">
-            <a aria-label="External link to the Ubuntu legal information page" href="http://www.ubuntu.com/legal">
-              Legal information
-            </a>
+            <a aria-label="External link to the Ubuntu legal information page"
+               href="http://www.ubuntu.com/legal">Legal information</a>
           </li>
           <li class="p-inline-list__item">
             <a class="js-revoke-cookie-manager" href="">Manage your tracker settings</a>
           </li>
           <li class="p-inline-list__item">
-            <a aria-label="External link to report a bug on this site" href="https://github.com/canonical-web-and-design/charmed-kubeflow.io/issues/new">
+            <a aria-label="External link to report a bug on this site"
+               href="https://github.com/canonical-web-and-design/charmed-kubeflow.io/issues/new">
               Report a bug on this site
             </a>
           </li>
@@ -24,4 +24,17 @@
       </nav>
     </div>
   </div>
-</footer>
+{% endmacro %}
+{% if is_docs %}
+  <div class="p-strip--light footer l-docs__subgrid">
+    <div class="l-docs__main">
+      <footer class="footer">
+        {{ footer_contents() }}
+      </footer>
+    </div>
+  </div>
+{% else %}
+  <footer class="p-strip--light">
+    {{ footer_contents() }}
+  </footer>
+{% endif %}

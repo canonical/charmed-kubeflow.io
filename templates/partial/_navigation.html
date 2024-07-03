@@ -1,36 +1,57 @@
-<header id="navigation" class="p-navigation is-dark">
-  <div class="p-navigation__row">
-    <div class="p-navigation__banner">
-      <div class="p-navigation__tagged-logo">
-        <a class="p-navigation__link" href="/">
-          <div class="p-navigation__logo-tag">
-            <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="">
-          </div>
-          <span class="p-navigation__logo-title">Canonical Kubeflow</span>
-        </a>
-      </div>
-      <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
-      <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+{% macro nav_logo() %}
+  <div class="p-navigation__banner">
+    <div class="p-navigation__tagged-logo">
+      <a class="p-navigation__link" href="/">
+        <div class="p-navigation__logo-tag">
+          <img class="p-navigation__logo-icon"
+               src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg"
+               alt="" />
+        </div>
+        <span class="p-navigation__logo-title">Canonical Kubeflow</span>
+      </a>
     </div>
-
-    <nav class="p-navigation__nav">
-      <ul class="p-navigation__items">
-        <li class="p-navigation__item {% if request.path.startswith('/docs') %}is-selected{% endif %}">
-          <a class="p-navigation__link" href="/docs">Docs</a>
-        </li>
-        <li class="p-navigation__item">
-          <a class="p-navigation__link" href="https://github.com/juju-solutions/bundle-kubeflow">Code</a>
-        </li>
-        <li class="p-navigation__item">
-          <a class="p-navigation__link" href="https://github.com/juju-solutions/bundle-kubeflow/issues">Bugs</a>
-        </li>
-        <li class="p-navigation__item">
-          <a class="p-navigation__link" href="https://discourse.charmhub.io/tags/kubeflow">Community</a>
-        </li>
-      </ul>
-      <ul class="p-navigation__items global-nav"></ul>
-    </nav>
+    <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+    <a href="#navigation-closed"
+       class="p-navigation__toggle--close"
+       title="close menu">Close menu</a>
   </div>
+{% endmacro %}
+{% macro nav_items() %}
+  <nav class="p-navigation__nav">
+    <ul class="p-navigation__items">
+      <li class="p-navigation__item {% if request.path.startswith('/docs') %}is-selected{% endif %}">
+        <a class="p-navigation__link" href="/docs">Docs</a>
+      </li>
+      <li class="p-navigation__item">
+        <a class="p-navigation__link"
+           href="https://github.com/juju-solutions/bundle-kubeflow">Code</a>
+      </li>
+      <li class="p-navigation__item">
+        <a class="p-navigation__link"
+           href="https://github.com/juju-solutions/bundle-kubeflow/issues">Bugs</a>
+      </li>
+      <li class="p-navigation__item">
+        <a class="p-navigation__link"
+           href="https://discourse.charmhub.io/tags/kubeflow">Community</a>
+      </li>
+    </ul>
+    <ul class="p-navigation__items global-nav">
+    </ul>
+  </nav>
+{% endmacro %}
+<header id="navigation" class="p-navigation is-dark">
+  {% if is_docs %}
+    <div class="l-docs__subgrid">
+      <div class="l-docs__sidebar">{{ nav_logo() }}</div>
+      <div class="l-docs__main">
+        <div class="p-navigation__row u-fixed-width">{{ nav_items() }}</div>
+      </div>
+    </div>
+  {% else %}
+    <div class="p-navigation__row--25-75">
+      {{ nav_logo() }}
+      {{ nav_items() }}
+    </div>
+  {% endif %}
 </header>
-
 <script src="{{ versioned_static('js/dist/global-nav.js') }}"></script>

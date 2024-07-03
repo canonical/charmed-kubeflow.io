@@ -1,0 +1,61 @@
+{% extends "base_layout.html" %}
+{% block page_class %}docs{% endblock %}
+{% block title %}
+    {% if document %}
+        {{ document.title }}
+    {% else %}
+        Docs
+    {% endif %}
+{% endblock %}
+{% block meta_title %}
+    {% if document %}
+        {{ document.title }}
+    {% else %}
+        Docs
+    {% endif %}
+{% endblock %}
+{% block body %}
+    <div class="l-docs">
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7QJ3BF"
+        height="0"
+        width="0"
+        style="display: none;
+               visibility: hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <script src="{{ versioned_static('js/dist/cookie-policy.js') }}"></script>
+        <div class="l-docs__header">
+            {% include "partial/_navigation.html" %}
+            <section id="search-docs" class="p-strip--light is-shallow l-docs__header">
+                
+                <div class="l-docs__subgrid">
+                    <form class="l-docs__main p-search-box u-no-margin--bottom" action="/docs/search">
+                        <input type="search"
+                               class="p-search-box__input"
+                               name="q"
+                               {% if query %}value="{{ query }}"{% endif %}
+                               placeholder="Search documentation"
+                               required />
+                        <button type="submit" class="p-search-box__button" alt="search">
+                            <i class="p-icon--search">Search</i>
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </div>
+        {% block content_docs %}
+        {% endblock content_docs %}
+        <div class="l-docs__footer">{% include "partial/_footer.html" %}</div>
+        <div class="u-hide"
+             id="contact-form-container"
+             data-form-location="/includes/contact-us"
+             data-form-id="1337"
+             data-lp-id="2313"
+             data-return-url="http://charmed-kubeflow.io/thank-you"
+             data-lp-url=""></div>
+        <script src="{{ versioned_static('js/dynamic-contact-form.js') }}"></script>
+    </div>
+    <script src="{{ versioned_static('js/prism.js') }}"></script>
+    <script src="{{ versioned_static('js/docs-side-nav.js') }}"></script>
+    <script src="{{ versioned_static('js/build/discourse-rad-parser/discourse-rad-parser.js')}}"></script>
+    <script>drpNs.DiscourseRADParser();</script>
+{% endblock body %}
