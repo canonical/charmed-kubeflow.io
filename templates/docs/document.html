@@ -3,7 +3,6 @@
 {% block content_class %}l-docs-wrapper{% endblock %}
 {% block title %}{{ document.title }} | Documentation{% endblock %}
 {% set is_docs = True %}
-
 {% block content_docs %}
   {% macro create_navigation(nav_items, expandable=False, expanded=False) %}
     <ul class="p-side-navigation__list ">
@@ -24,7 +23,7 @@
           {% if expandable %}
             {% if element.children %}
               <button class="p-side-navigation__expand"
-                      aria-expanded="{% if element.is_active or element.has_active_child %}" " true " {% else %} " false " {% endif %} aria-label="
+                      aria-expanded={% if element.is_active or element.has_active_child %}"true"{% else %}"false"{% endif %} aria-label="
                       show
                       submenu
                       for
@@ -120,8 +119,8 @@
     </div>
   {% endif %}
   <!-- {{ document }} -->
-  <div class="l-docs__main">
-    <main id="main-content u-fixed-width">
+  <div class="l-docs__main u-fixed-width">
+    <main id="main-content">
       {{ document.body_html | safe }}
       <hr />
       <p>
@@ -136,5 +135,4 @@
   </div>
   <script src="{{ versioned_static('js/prism.js') }}"></script>
   <script src="{{ versioned_static('js/side-navigation.js') }}"></script>
-  <script src="{{ versioned_static('js/docs-side-nav.js') }}"></script>
 {% endblock content_docs %}
