@@ -228,230 +228,260 @@
           </ul>
         </div>
         <div class="col-5 u-vertically-center p-logo-section">
-          <div class="p-logo-section__items" style="margin: .5rem">
-            <div class="p-logo-section__item" style="margin: 1.875rem">
-              {{ image(url="https://assets.ubuntu.com/v1/5ecd8306-Apache_Spark_logo.svg",
-                            alt="Apache Spark",
-                            width="148",
-                            height="78",
-                            hi_def=True,
-                            attrs={"class": "p-logo-section__logo"},) | safe
+          <div class="p-logo-section__items">
+            <div class="p-logo-section__item">
+              {{ image (
+              url="https://assets.ubuntu.com/v1/a8fbddc8-apache-spark-logo.png",
+              alt="",
+              width="150",
+              height="189",
+              hi_def=True,
+              loading="auto|lazy"
+              ) | safe
               }}
             </div>
-            <div class="p-logo-section__item" style="margin: 1.875rem">
-              {{ image(url="https://assets.ubuntu.com/v1/c2a4ebd4-Kafka.svg",
-                            alt="Kafka",
-                            width="147",
-                            height="68",
-                            hi_def=True,
-                            attrs={"class": "p-logo-section__logo"},) | safe
+            <div class="p-logo-section__item">
+              {{ image (
+              url="https://assets.ubuntu.com/v1/9899746b-kafka-logo.png",
+              alt="",
+              width="150",
+              height="205",
+              hi_def=True,
+              loading="auto|lazy"
+              ) | safe
               }}
             </div>
           </div>
         </div>
-      </section>
-      <section class="p-strip">
-        <div class="row">
-          <div class="col-4 u-hide--small u-hide--medium ">
-            <div class="p-logo-section">
-              <div class="p-logo-section__items">
-                <div class="p-logo-section__item">
-                  <img class="p-logo-section__logo"
-                       src="https://assets.ubuntu.com/v1/8e871a40-MLflow-Logo.svg"
-                       style="width: 12rem" />
-                </div>
-                <div class="p-logo-section__item">
-                  <img class="p-logo-section__logo"
-                       src="https://assets.ubuntu.com/v1/e227c0b2-seldon.d08abf3e.png"
-                       style="width: 12rem;
-                              margin-top: 0.8rem;
-                              margin-bottom: 1.6rem" />
-                </div>
-                <div class="p-logo-section__item">
-                  <img class="p-logo-section__logo"
-                       src="https://assets.ubuntu.com/v1/5ecd8306-Apache_Spark_logo.svg"
-                       style="width: 12rem" />
-                </div>
+      </div>
+    </section>
+    <section class="p-strip">
+      <div class="row">
+        <div class="col-4 u-hide--small u-hide--medium ">
+          <div class="p-logo-section">
+            <div class="p-logo-section__items">
+              <div class="p-logo-section__item">
+                <img class="p-logo-section__logo"
+                     src="https://assets.ubuntu.com/v1/8e871a40-MLflow-Logo.svg"
+                     style="width: 12rem" />
               </div>
-            </div>
-          </div>
-          <div class="col-8">
-            <h2>Open source data operations</h2>
-            <p class="p-heading--4 u-sv2">Composable, model-driven solutions</p>
-            <p>
-              Make use of open source integration code and compound the benefit of <a href="https://charmhub.io/">300+ available Juju charm operators</a>.
-            </p>
-            <p>
-              The Juju charm operator solution from Canonical makes deploying and managing Charmed Kubeflow predictable, repeatable and reliable for your IT operations team. Zero friction, from proof-of-concept to production.
-            </p>
-            <p>
-              Engineered for flexibility around complex scenarios, the Juju charms extended ecosystem allows you to tailor Charmed Kubeflow to your needs with additional integrations &mdash; like MLFlow, Apache Spark and Seldon Core.
-            </p>
-            <p>
-              <a href="https://jaas.ai/kubeflow/bundle" class="p-button--neurtal">Kubeflow charms and models&nbsp;&rsaquo;</a>
-            </p>
-          </div>
-        </div>
-      </section>
-      <section class="p-strip--light">
-        <div class="row">
-          <div class="col-7">
-            <h2>Optimised for every cloud</h2>
-            <p class="p-heading--4 u-sv2">Fast AI predictions on every major cloud with GPU acceleration</p>
-            <p>We work with Amazon AWS, Microsoft Azure, Google and Oracle clouds to simplify multi-cloud, GPU accelerated AI.</p>
-            <p>
-              Easy setup across cloud Kubernetes services for a multi-cloud MLOps platform. Get the elasticity of the public clouds with the governance of on-premise service management. Separate training from production environments as required &mdash; hybrid cloud is also supported.
-            </p>
-            <p>
-              Automated deployment and management with Canonical's Juju charm model-driven operator solution. Support for major cloud Kubernetes services including Azure AKS, AWS EKS and Google GKE.
-            </p>
-            <p>
-              <a href="https://ubuntu.com/kubernetes">Kubeflow on multi-cloud K8s&nbsp;&rsaquo;</a>
-            </p>
-          </div>
-          <div class="col-5 u-hide--small u-hide--medium ">
-            <div class="p-logo-section">
-              <div class="p-logo-section__items">
-                <div class="p-logo-section__item">
-                  <img class="p-logo-section__logo"
-                       src="https://assets.ubuntu.com/v1/e7a3c4d8-MicrosoftAzure.svg"
-                       style="height: 3rem; margin: 2rem;" />
-                </div>
-                <div class="p-logo-section__item">
-                  <img class="p-logo-section__logo"
-                       src="https://assets.ubuntu.com/v1/8e5cc412-AWS.svg"
-                       style="height: 3rem; margin: 2rem;" />
-                </div>
-                <div class="p-logo-section__item">
-                  <img class="p-logo-section__logo"
-                       src="https://assets.ubuntu.com/v1/6e176d9a-Google+Cloud+stacked.svg"
-                       style="height: 3rem; margin: 2rem;" />
-                </div>
-                <div class="p-logo-section__item">
-                  <img class="p-logo-section__logo"
-                       src="https://assets.ubuntu.com/v1/cb2c8b1f-Oracle.svg"
-                       style="height: 3rem; margin: 2rem;" />
-                </div>
+              <div class="p-logo-section__item">
+                <img class="p-logo-section__logo"
+                     src="https://assets.ubuntu.com/v1/e227c0b2-seldon.d08abf3e.png"
+                     style="width: 12rem;
+                            margin-top: 0.8rem;
+                            margin-bottom: 1.6rem" />
+              </div>
+              <div class="p-logo-section__item">
+                <img class="p-logo-section__logo"
+                     src="https://assets.ubuntu.com/v1/5ecd8306-Apache_Spark_logo.svg"
+                     style="width: 12rem" />
               </div>
             </div>
           </div>
         </div>
-      </section>
-      <section class="p-strip">
-        <div class="row">
-          <div class="col-6 u-vertically-center u-hide--small u-hide--medium p-logo-section">
-            <div class="p-logo-section">
-              <div class="p-logo-section__items">
-                <div class="p-logo-section__item" style="margin: 1.875rem">
-                  {{ image(url="https://assets.ubuntu.com/v1/97e29c13-Dell.svg",
-                                    alt="Dell",
-                                    width="60",
-                                    height="60",
-                                    hi_def=True,
-                                    attrs={"class": "p-logo-section__logo"},) | safe
-                  }}
-                </div>
-                <div class="p-logo-section__item" style="margin: 1.875rem">
-                  {{ image(url="https://assets.ubuntu.com/v1/cb6924a9-Nvidia_image_logo.svg",
-                                    alt="NVIDIA",
-                                    width="60",
-                                    height="50",
-                                    hi_def=True,
-                                    attrs={"class": "p-logo-section__logo"},) | safe
-                  }}
-                </div>
-                <div class="p-logo-section__item" style="margin: 1.875rem">
-                  {{ image(url="https://assets.ubuntu.com/v1/182d5546-logo-hp.png",
-                                    alt="HP",
-                                    width="60",
-                                    height="60",
-                                    hi_def=True,
-                                    attrs={"class": "p-logo-section__logo"},) | safe
-                  }}
-                </div>
-                <div class="p-logo-section__item" style="margin: 1.875rem">
-                  {{ image(url="https://assets.ubuntu.com/v1/7c91270a-Lenovo.svg",
-                                    alt="Lenovo",
-                                    width="165",
-                                    height="35",
-                                    hi_def=True,
-                                    attrs={"class": "p-logo-section__logo"},) | safe
-                  }}
-                </div>
+        <div class="col-8">
+          <h2>Open source data operations</h2>
+          <p class="p-heading--4 u-sv2">Composable, model-driven solutions</p>
+          <p>
+            Make use of open source integration code and compound the benefit of <a href="https://charmhub.io/">300+ available Juju charm operators</a>.
+          </p>
+          <p>
+            The Juju charm operator solution from Canonical makes deploying and managing Charmed Kubeflow predictable, repeatable and reliable for your IT operations team. Zero friction, from proof-of-concept to production.
+          </p>
+          <p>
+            Engineered for flexibility around complex scenarios, the Juju charms extended ecosystem allows you to tailor Charmed Kubeflow to your needs with additional integrations &mdash; like MLFlow, Apache Spark and Seldon Core.
+          </p>
+          <p>
+            <a href="https://jaas.ai/kubeflow/bundle" class="p-button--neurtal">Kubeflow charms and models&nbsp;&rsaquo;</a>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="p-strip--light">
+      <div class="row">
+        <div class="col-7">
+          <h2>Optimised for every cloud</h2>
+          <p class="p-heading--4 u-sv2">Fast AI predictions on every major cloud with GPU acceleration</p>
+          <p>We work with Amazon AWS, Microsoft Azure, Google and Oracle clouds to simplify multi-cloud, GPU accelerated AI.</p>
+          <p>
+            Easy setup across cloud Kubernetes services for a multi-cloud MLOps platform. Get the elasticity of the public clouds with the governance of on-premise service management. Separate training from production environments as required &mdash; hybrid cloud is also supported.
+          </p>
+          <p>
+            Automated deployment and management with Canonical's Juju charm model-driven operator solution. Support for major cloud Kubernetes services including Azure AKS, AWS EKS and Google GKE.
+          </p>
+          <p>
+            <a href="https://ubuntu.com/kubernetes">Kubeflow on multi-cloud K8s&nbsp;&rsaquo;</a>
+          </p>
+        </div>
+        <div class="col-5 u-hide--small u-hide--medium ">
+          <div class="p-logo-section">
+            <div class="p-logo-section__items">
+              <div class="p-logo-section__item">
+                {{ image(url="https://assets.ubuntu.com/v1/1b8e4451-aws-logo.png",
+                                alt="AWS",
+                                width="124",
+                                height="257",
+                                hi_def=True,
+                                loading="lazy",
+                                attrs={"class": "p-logo-section__logo"}) | safe
+                }}
+              </div>
+              <div class="p-logo-section__item">
+                {{ image(url="https://assets.ubuntu.com/v1/d2a1dea3-microsoft-azure-2021.png",
+                                alt="Azure",
+                                width="79",
+                                height="257",
+                                hi_def=True,
+                                loading="lazy",
+                                attrs={"class": "p-logo-section__logo"}) | safe
+                }}
+              </div>
+              <div class="p-logo-section__item">
+                {{ image(url="https://assets.ubuntu.com/v1/fc0bb593-google-cloud-logo.png",
+                                alt="Google Cloud",
+                                width="397",
+                                height="257",
+                                hi_def=True,
+                                loading="lazy",
+                                attrs={"class": "p-logo-section__logo"}) | safe
+                }}
+              </div>
+              <div class="p-logo-section__item">
+                {{ image(url="https://assets.ubuntu.com/v1/7267b565-oracle-new-logo.png",
+                                alt="Oracle",
+                                width="369",
+                                height="368",
+                                hi_def=True,
+                                loading="lazy",
+                                attrs={"class": "p-logo-section__logo"}) | safe
+                }}
               </div>
             </div>
           </div>
-          <div class="col-6">
-            <h2>Full-stack Charmed Kubeflow</h2>
-            <p class="p-heading--4 u-sv2">Get your AI initiative up and running fast with integrated, proven solutions.</p>
-            <p>
-              We work with system vendors like Dell, Lenovo, HP and NVIDIA to bring the best out-of-the-box MLOps experience to the data centre.
-            </p>
-            <p>
-              Operate a bare-metal Kubernetes cloud on-premise with <a href="http://maas.io">Metal As A Service</a>.
-            </p>
-            <p>
-              Canonical's Juju charm model-driven operator solution for Charmed Kubeflow delivers a horizontally scalable, integrated data science system for AI. Includes Canonical Observability Stack, Ceph storage system, Charmed Kubernetes and the Charmed Kubeflow MLOps platform. All with full, 24/7 support available from Canonical.
-            </p>
-            <ul class="p-inline-list">
-              <li class="p-inline-list__item">
-                <a href="https://lenovopress.com/lp1415-canonical-charmed-kubernetes-on-thinksystem-for-ai-development">Lenovo AI Development Reference Architecture</a>
-              </li>
-            </ul>
-            <ul class="p-inline-list">
-              <li class="p-inline-list__item">
-                <a href="https://ubuntu.com/engage/dell-kubeflow-reference-architecture">Dell and Canonical Reference Architecture</a>
-              </li>
-              <li class="p-inline-list__item">
-                <a href="/contact-us" class="js-invoke-modal">Contact us&nbsp;&rsaquo;</a>
-              </li>
-            </ul>
+        </div>
+      </div>
+    </section>
+    <section class="p-strip">
+      <div class="row">
+        <div class="col-6 u-vertically-center u-hide--small u-hide--medium p-logo-section">
+          <div class="p-logo-section">
+            <div class="p-logo-section__items">
+              <div class="p-logo-section__item">
+                {{ image(url="https://assets.ubuntu.com/v1/25d7b284-hp-logo%20.png",
+                                alt="HP",
+                                width="195",
+                                height="474",
+                                hi_def=True,
+                                loading="lazy",
+                                attrs={"class": "p-logo-section__logo"}) | safe
+                }}
+              </div>
+              <div class="p-logo-section__item">
+                {{ image(url="https://assets.ubuntu.com/v1/c98e92ee-dell-logo%20.png",
+                                alt="Dell",
+                                width="231",
+                                height="474",
+                                hi_def=True,
+                                loading="lazy",
+                                attrs={"class": "p-logo-section__logo"}) | safe
+                }}
+              </div>
+              <div class="p-logo-section__item">
+                {{ image(url="https://assets.ubuntu.com/v1/2cbbaaf5-lenovo-logo%20.png",
+                                alt="Lenovo",
+                                width="318",
+                                height="474",
+                                hi_def=True,
+                                loading="lazy",
+                                attrs={"class": "p-logo-section__logo"}) | safe
+                }}
+              </div>
+              <div class="p-logo-section__item">
+                {{ image (
+                url="https://assets.ubuntu.com/v1/e86f8702-nvidia-logo%20.png",
+                alt="",
+                width="200",
+                height="200",
+                hi_def=True,
+                loading="auto|lazy"
+                ) | safe
+                }}
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-      <section class="p-strip--light">
-        <div class="row">
-          <div class="col-7">
-            <h2>The MLOps on Kubernetes experts</h2>
-            <p>
-              Charmed Kubeflow is complemented by other Kubernetes solutions available from Canonical, including MicroK8s and Charmed Kubernetes.
-            </p>
-            <p>
-              <a href="http://microk8s.io">MicroK8s</a> is the tiny yet mighty, opinionated zero-ops Kubernetes distribution. Easily build a distributed MLOps environment in record time.
-            </p>
-            <p>
-              <a href="https://ubuntu.com/kubernetes/install#cluster">Charmed Kubernetes</a> delivers full flexibility and comprehensive control. Deliver a world-class data science cluster at epic scale.
-            </p>
-          </div>
-          <div class="col-3 u-align--center u-vertically-center">
-            {{ image(url="https://assets.ubuntu.com/v1/5d6da5c4-logo-canonical-aubergine.svg",
-                        alt="",
-                        width="480",
-                        height="65",
-                        hi_def=True,) | safe
-            }}
-          </div>
+        <div class="col-6">
+          <h2>Full-stack Charmed Kubeflow</h2>
+          <p class="p-heading--4 u-sv2">Get your AI initiative up and running fast with integrated, proven solutions.</p>
+          <p>
+            We work with system vendors like Dell, Lenovo, HP and NVIDIA to bring the best out-of-the-box MLOps experience to the data centre.
+          </p>
+          <p>
+            Operate a bare-metal Kubernetes cloud on-premise with <a href="http://maas.io">Metal As A Service</a>.
+          </p>
+          <p>
+            Canonical's Juju charm model-driven operator solution for Charmed Kubeflow delivers a horizontally scalable, integrated data science system for AI. Includes Canonical Observability Stack, Ceph storage system, Charmed Kubernetes and the Charmed Kubeflow MLOps platform. All with full, 24/7 support available from Canonical.
+          </p>
+          <ul class="p-inline-list">
+            <li class="p-inline-list__item">
+              <a href="https://lenovopress.com/lp1415-canonical-charmed-kubernetes-on-thinksystem-for-ai-development">Lenovo AI Development Reference Architecture</a>
+            </li>
+          </ul>
+          <ul class="p-inline-list">
+            <li class="p-inline-list__item">
+              <a href="https://ubuntu.com/engage/dell-kubeflow-reference-architecture">Dell and Canonical Reference Architecture</a>
+            </li>
+            <li class="p-inline-list__item">
+              <a href="/contact-us" class="js-invoke-modal">Contact us&nbsp;&rsaquo;</a>
+            </li>
+          </ul>
         </div>
-      </section>
-      <section class="p-strip">
-        <div class="row u-equal-height">
-          <div class="col-3 col-start-large-2 u-align--center u-hide--small u-hide--medium u-vertically-center">
-            {{ image(url="https://assets.ubuntu.com/v1/24a03775-Contact+us.svg",
-                        alt="",
-                        width="240",
-                        height="171",
-                        hi_def=True,) | safe
-            }}
-          </div>
-          <div class="col-7 col-start-large-6">
-            <h3>Need help?</h3>
-            <p>
-              Get in touch with one of our experts now to find out more about Canonical's 24/7 expert services for MLOps environments running Charmed Kubeflow.
-            </p>
-            <p>
-              <a href="/contact-us" class="p-button--positive js-invoke-modal">Contact us</a>
-            </p>
-          </div>
+      </div>
+    </section>
+    <section class="p-strip--light">
+      <div class="row">
+        <div class="col-7">
+          <h2>The MLOps on Kubernetes experts</h2>
+          <p>
+            Charmed Kubeflow is complemented by other Kubernetes solutions available from Canonical, including MicroK8s and Charmed Kubernetes.
+          </p>
+          <p>
+            <a href="http://microk8s.io">MicroK8s</a> is the tiny yet mighty, opinionated zero-ops Kubernetes distribution. Easily build a distributed MLOps environment in record time.
+          </p>
+          <p>
+            <a href="https://ubuntu.com/kubernetes/install#cluster">Charmed Kubernetes</a> delivers full flexibility and comprehensive control. Deliver a world-class data science cluster at epic scale.
+          </p>
         </div>
-      </section>
-    {% endblock %}
+        <div class="col-3 u-align--center u-vertically-center">
+          {{ image(url="https://assets.ubuntu.com/v1/5d6da5c4-logo-canonical-aubergine.svg",
+                    alt="",
+                    width="480",
+                    height="65",
+                    hi_def=True,) | safe
+          }}
+        </div>
+      </div>
+    </section>
+    <section class="p-strip">
+      <div class="row u-equal-height">
+        <div class="col-3 col-start-large-2 u-align--center u-hide--small u-hide--medium u-vertically-center">
+          {{ image(url="https://assets.ubuntu.com/v1/24a03775-Contact+us.svg",
+                    alt="",
+                    width="240",
+                    height="171",
+                    hi_def=True,) | safe
+          }}
+        </div>
+        <div class="col-7 col-start-large-6">
+          <h3>Need help?</h3>
+          <p>
+            Get in touch with one of our experts now to find out more about Canonical's 24/7 expert services for MLOps environments running Charmed Kubeflow.
+          </p>
+          <p>
+            <a href="/contact-us" class="p-button--positive js-invoke-modal">Contact us</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  {% endblock %}
