@@ -5,9 +5,6 @@
 {% endblock meta_description %}
 {% block content %}
   <section class="p-strip--suru">
-    {% if schedule_banner("2023-03-08", "2023-03-22") %}
-      {% include "partial/_beta-banner.html" %}
-    {% endif %}
     <div class="row u-equal-height">
       <div class="col-6 u-vertically-center">
         <div>
@@ -125,6 +122,8 @@
                 alt="",
                 width="324",
                 height="302",
+                attrs={"class": "p-logo-section__logo"},
+                loading="lazy",
                 hi_def=True,) | safe
         }}
       </div>
@@ -136,6 +135,8 @@
                     alt="",
                     width="279",
                     height="300",
+                    attrs={"class": "p-logo-section__logo"},
+                    loading="lazy",
                     hi_def=True,) | safe
           }}
         </div>
@@ -261,21 +262,40 @@
           <div class="p-logo-section">
             <div class="p-logo-section__items">
               <div class="p-logo-section__item">
-                <img class="p-logo-section__logo"
-                     src="https://assets.ubuntu.com/v1/8e871a40-MLflow-Logo.svg"
-                     style="width: 12rem" />
+                {{ image (
+                url="https://assets.ubuntu.com/v1/24b77e42-mlflow-logo.png",
+                alt="",
+                width="222",
+                height="312",
+                hi_def=True,
+                loading="lazy",
+                attrs={"class": "p-logo-section__logo"}
+                ) | safe
+                }}
               </div>
               <div class="p-logo-section__item">
-                <img class="p-logo-section__logo"
-                     src="https://assets.ubuntu.com/v1/e227c0b2-seldon.d08abf3e.png"
-                     style="width: 12rem;
-                            margin-top: 0.8rem;
-                            margin-bottom: 1.6rem" />
+                {{ image (
+                url="https://assets.ubuntu.com/v1/d51c2128-seldon-logo.png",
+                alt="",
+                width="304",
+                height="312",
+                hi_def=True,
+                loading="lazy",
+                attrs={"class": "p-logo-section__logo"}
+                ) | safe
+                }}
               </div>
               <div class="p-logo-section__item">
-                <img class="p-logo-section__logo"
-                     src="https://assets.ubuntu.com/v1/5ecd8306-Apache_Spark_logo.svg"
-                     style="width: 12rem" />
+                {{ image (
+                url="https://assets.ubuntu.com/v1/a8fbddc8-apache-spark-logo.png",
+                alt="",
+                width="241",
+                height="312",
+                hi_def=True,
+                loading="lazy",
+                attrs={"class": "p-logo-section__logo"}
+                ) | safe
+                }}
               </div>
             </div>
           </div>
@@ -314,7 +334,7 @@
             <a href="https://ubuntu.com/kubernetes">Kubeflow on multi-cloud K8s&nbsp;&rsaquo;</a>
           </p>
         </div>
-        <div class="col-5 u-hide--small u-hide--medium ">
+        <div class="col-5 u-hide--small u-hide--medium u-align--center u-vertically-center">
           <div class="p-logo-section">
             <div class="p-logo-section__items">
               <div class="p-logo-section__item">
@@ -404,7 +424,8 @@
                 width="200",
                 height="200",
                 hi_def=True,
-                loading="auto|lazy"
+                loading="lazy",
+                attrs={"class": "p-logo-section__logo"}
                 ) | safe
                 }}
               </div>
