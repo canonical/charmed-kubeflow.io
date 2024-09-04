@@ -1,7 +1,11 @@
 {% macro footer_contents() %}
   <div class="row">
     <div class="col-12">
+      {% if is_docs %}
+      <p>Copyright &copy; {{ now("%Y") }} CC-BY-SA, Canonical Ltd</p>
+      {% else %}
       <p>&copy; {{ now("%Y") }} Canonical Ltd.</p>
+      {% endif %}
       <nav>
         <ul class="p-inline-list--middot">
           <li class="p-inline-list__item">
