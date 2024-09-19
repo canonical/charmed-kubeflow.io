@@ -38,9 +38,11 @@ app.add_url_rule(
     "/docs/search",
     "docs-search",
     build_search_view(
+        app=app,
         session=session,
         site="charmed-kubeflow.io/docs",
         template_path="docs/search.html",
+        request_limit="1/day",
     ),
 )
 
