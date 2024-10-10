@@ -11,6 +11,8 @@
             </title>
             <link rel="preconnect" href="https://www.google-analytics.com" />
             <link rel="preconnect" href="https://www.gstatic.com" />
+            <!-- Cookie policy -->
+            <script src="{{ versioned_static('js/dist/cookie-policy.js') }}"></script>
             <!-- Google Tag Manager -->
             <script>
       (function (w, d, s, l, i) {
@@ -82,7 +84,6 @@
             <link rel="stylesheet" type="text/css" media="screen" href="{{ versioned_static("css/styles.css") }}" />
       </head>
       <body>
-            <script src="{{ versioned_static('js/dist/cookie-policy.js') }}"></script>
             {% block body %}
             <!-- Google Tag Manager (noscript) -->
             <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7QJ3BF"
@@ -91,7 +92,6 @@
         style="display: none;
                visibility: hidden"></iframe></noscript>
             <!-- End Google Tag Manager (noscript) -->
-            <script src="{{ versioned_static('js/dist/cookie-policy.js') }}"></script>
             {% include "partial/_navigation.html" %}
             <div id="main">
                   {% block content %}
